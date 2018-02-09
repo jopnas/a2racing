@@ -1,5 +1,3 @@
-waitUntil{!(isNil "BIS_MPF_InitDone")};
-
 raceStarted = false;
 racePaused = false;
 
