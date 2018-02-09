@@ -14,7 +14,7 @@ chpoi4 = false;
 	Function for finishline trigger.
 
 	onAct.:
-	[] call fnc_crossedFinishline;	
+	[] call fnc_crossedFinishline;
 */
 fnc_crossedFinishline = {
 	if(!racePaused && raceStarted && chpoi1 && chpoi2 && chpoi3 && chpoi4)then{
