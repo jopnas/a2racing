@@ -37,9 +37,6 @@ fnc_crossedFinishline = {
 
 	onAct.:
 	[1] call fnc_crossedCheckpoint;
-	[2] call fnc_crossedCheckpoint;
-	[3] call fnc_crossedCheckpoint;
-	[4] call fnc_crossedCheckpoint;
 */
 fnc_crossedCheckpoint = {
 	_chpoiNo = _this select 0;
