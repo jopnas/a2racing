@@ -21,6 +21,10 @@ chpoi4 = false;
 fnc_crossedFinishline = {
 	if(!racePaused && raceStarted && chpoi1 && chpoi2 && chpoi3 && chpoi4)then{
 		// TODO: send roundtime to server
+
+		serverExec = format["[%1,%2] call fnc_getBesttime",name player,roundTime];
+		publicVariable "serverExec";
+
 		roundTime = 0;
 		rounds = rounds + 1;
 		chpoi1 = false;
@@ -41,20 +45,8 @@ fnc_crossedFinishline = {
 */
 fnc_crossedCheckpoint = {
 	_chpoiNo = _this select 0;
-	switch (_chpoiNo) do {
-		case 1: {
-			chpoi1 = true;
-		};
-		case 2: {
-			chpoi2 = true;
-		};
-		case 3: {
-			chpoi3 = true;
-		};
-		case 4: {
-			chpoi4 = true;
-		};
-	};
+	_compiledFnc = compile format["chpoi%1 = true;",_chpoiNo];
+	call _compiledFnc;
 };
 
 //Admin Actions
@@ -66,6 +58,17 @@ player addAction["Pause Race",{
 		racePaused = true;
 	}
 },[],1,false,false,"","serverCommandAvailable '#kick'"];
+
+// Player EventHandlers
+"clientExec" addPublicVariableEventHandler {
+	_fnc = _this select 1;
+	_compiledFnc = compile format["%1",_fnc];
+	call _compiledFnc;
+};
+
+/*"bestlist" addPublicVariableEventHandler {
+	_best = _this select 1;
+};*/
 
 while {alive player} do {
 	if(!racePaused && raceStarted)then{
