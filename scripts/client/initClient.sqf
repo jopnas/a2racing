@@ -49,13 +49,31 @@ fnc_crossedCheckpoint = {
 
 //Admin Actions
 	// TODO: pause on all clients
+player addAction["Start Race",{
+	raceStarted = false;
+},[],1,false,false,"","(serverCommandAvailable '#kick') && (!raceStarted)"];
+
 player addAction["Pause Race",{
 	if(racePaused)then{
 		racePaused = false;
 	}else{
 		racePaused = true;
 	}
-},[],1,false,false,"","serverCommandAvailable '#kick'"];
+},[],1,false,false,"","(serverCommandAvailable '#kick') && raceStarted"];
+
+player addAction["Reset Race",{
+	raceStarted = false;
+	racePaused = false;
+
+	rounds = 0;
+	raceTime = 0;
+	roundTime = 0;
+
+	chpoi1 = false;
+	chpoi2 = false;
+	chpoi3 = false;
+	chpoi4 = false;
+},[],1,false,false,"","(serverCommandAvailable '#kick') && raceStarted"];
 
 // Player EventHandlers
 "clientExec" addPublicVariableEventHandler {
