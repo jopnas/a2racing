@@ -4,11 +4,15 @@ class Mission
 	addOns[]=
 	{
 		"ibr_lingor",
-		"CAWheeled3_TT650"
+		"CAWheeled3_TT650",
+		"camp_armory_misc_plasticpole",
+		"cacharacters2"
 	};
 	addOnsAuto[]=
 	{
+		"cacharacters2",
 		"CAWheeled3_TT650",
+		"camp_armory_misc_plasticpole",
 		"ibr_lingor"
 	};
 	randomSeed=12604501;
@@ -30,21 +34,103 @@ class Mission
 			side="CIV";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
-					position[]={1938.7401,11.612471,4594.1567};
-					azimut=176.74001;
+					position[]={1954.7206,11.612471,4594.146};
+					azimut=198.2153;
 					special="NONE";
-					id=0;
+					id=8;
 					side="CIV";
-					vehicle="TT650_Civ";
+					vehicle="Rocker1";
 					player="PLAYER COMMANDER";
 					leader=1;
 					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+				class Item1
+				{
+					position[]={1952.7793,11.612471,4592.1064};
+					azimut=176.74001;
+					special="NONE";
+					id=9;
+					side="CIV";
+					vehicle="TT650_Civ";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					rank="CORPORAL";
 					skill=0.2;
 				};
 			};
+		};
+	};
+	class Vehicles
+	{
+		items=8;
+		class Item0
+		{
+			position[]={1933.285,11.612471,4560.2695};
+			id=0;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item1
+		{
+			position[]={1944.0909,11.612471,4560.2651};
+			id=1;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item2
+		{
+			position[]={1690.4534,11.554152,4457.5806};
+			id=2;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item3
+		{
+			position[]={1679.8792,11.45102,4464.0049};
+			id=3;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item4
+		{
+			position[]={1726.2227,13.321895,4529.3672};
+			id=4;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item5
+		{
+			position[]={1717.1521,13.232774,4537.2012};
+			id=5;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item6
+		{
+			position[]={1899.1157,4.0956564,4715.8794};
+			id=6;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
+		};
+		class Item7
+		{
+			position[]={1887.3762,4.0898013,4713.8677};
+			id=7;
+			side="EMPTY";
+			vehicle="Plastic_Pole_EP1";
+			skill=0.60000002;
 		};
 	};
 	class Markers
@@ -72,7 +158,7 @@ class Mission
 		items=4;
 		class Item0
 		{
-			position[]={1938.4541,11.612471,4564.332};
+			position[]={1938.8325,11.612471,4550.2905};
 			a=6;
 			b=10;
 			rectangular=1;

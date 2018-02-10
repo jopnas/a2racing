@@ -1,13 +1,13 @@
-raceStarted = true;
+raceStarted = false;
 racePaused = false;
 
 rounds = 0;
 raceTime = 0;
 roundTime = 0;
-raceTimeHuminized = "00:00:000";
-roundTimeHuminized = "00:00:000";
-raceTimeArray = "00:00:000";
-roundTimeArray = ["00","00","000"];
+raceTimeHuminized = "00:00:0000";
+roundTimeHuminized = "00:00:0000";
+raceTimeArray = "00:00:0000";
+roundTimeArray = ["00","00","0000"];
 
 chpoi1 = false;
 chpoi2 = false;
@@ -54,34 +54,12 @@ fnc_crossedCheckpoint = {
 	systemChat "crossed checkpoint"; 
 };
 
-//Admin Actions
-	// TODO: pause on all clients
-	// Adding Actions
-/*player addAction["Start Race",{
-	raceStarted = false;
-},nil,1,false,false,"",""];
+//Actions
+player addAction ["Start Race", "scripts\client\startRace.sqf"];
+player addAction ["Pause Race", "scripts\client\pauseRace.sqf"];
+player addAction ["! Reset Race", "scripts\client\resetRace.sqf"];
 
-player addAction["Pause Race",{
-	if(racePaused)then{
-		racePaused = false;
-	}else{
-		racePaused = true;
-	}
-},[],1,false,false,"",""];
-
-player addAction["Reset Race",{
-	raceStarted = false;
-	racePaused = false;
-
-	rounds = 0;
-	raceTime = 0;
-	roundTime = 0;
-
-	chpoi1 = false;
-	chpoi2 = false;
-	chpoi3 = false;
-},[],1,false,false,"",""];
-
+/*
 // Player EventHandlers
 "clientExec" addPublicVariableEventHandler {
 	_fnc = _this select 1;
@@ -100,8 +78,12 @@ while {alive player} do {
 
 		//raceTimeHuminized = format["%1:%2:%3"(raceTime*60)*60,raceTime*60,raceTime];
 		roundTimeMili 	= roundTime;
-		roundTimeSec 	= floor(roundTime/60);
-		roundTimeMin 	= floor((roundTime/60)/60);
+		roundTimeSec 	= floor(roundTime/10);
+		roundTimeMin 	= floor((roundTime/10)/60);
+		
+		raceTimeMili 	=raceTime;
+		raceTimeSec 	= floor(raceTime/10);
+		raceTimeMin 	= floor((raceTime/10)/60);
 
 		if(roundTimeSec < 10)then{
 			roundTimeSec = format["0%1",roundTimeSec];
@@ -111,8 +93,17 @@ while {alive player} do {
 			roundTimeMin = format["0%1",roundTimeMin];
 		};
 
+		if(raceTimeSec < 10)then{
+			raceTimeSec = format["0%1",raceTimeSec];
+		};
+
+		if(raceTimeMin < 10)then{
+			raceTimeMin = format["0%1",raceTimeMin];
+		};
+
+		raceTimeHuminized = format["%1:%2:%3",raceTimeMin,raceTimeSec,raceTimeMili];
 		roundTimeHuminized = format["%1:%2:%3",roundTimeMin,roundTimeSec,roundTimeMili];
 	};
-	hintSilent format["raceStarted: %1\n racePaused: %2\n rounds: %3\n raceTimeHum.: %4\n roundTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8 \n\nRoundtimes\n\n%9",raceStarted,racePaused,rounds,raceTime,roundTimeHuminized,chpoi1,chpoi2,chpoi3,roundtimes];
+	hintSilent format["raceStarted: %1\n racePaused: %2\n rounds: %3\n raceTimeHum.: %4\n roundTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8 \n\nRoundtimes\n\n%9",raceStarted,racePaused,rounds,raceTimeHuminized,roundTimeHuminized,chpoi1,chpoi2,chpoi3,roundtimes];
 	sleep 0.1;
 };
