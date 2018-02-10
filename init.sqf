@@ -3,5 +3,5 @@ if(!isDedicated)then{
 };
 
 if(isServer)then{
-	[] execVM "scripts\client\initServer.sqf";
+	[] execVM "scripts\server\initServer.sqf";
 };

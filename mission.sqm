@@ -1,0 +1,211 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"ibr_lingor",
+		"CAWheeled3_TT650"
+	};
+	addOnsAuto[]=
+	{
+		"CAWheeled3_TT650",
+		"ibr_lingor"
+	};
+	randomSeed=12604501;
+	class Intel
+	{
+		startWeather=0.050000001;
+		forecastWeather=0.050000001;
+		year=2011;
+		month=1;
+		day=6;
+		hour=13;
+		minute=0;
+	};
+	class Groups
+	{
+		items=1;
+		class Item0
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1938.7401,11.612471,4594.1567};
+					azimut=176.74001;
+					special="NONE";
+					id=0;
+					side="CIV";
+					vehicle="TT650_Civ";
+					player="PLAYER COMMANDER";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.2;
+				};
+			};
+		};
+	};
+	class Markers
+	{
+		items=2;
+		class Item0
+		{
+			position[]={6001.1523,17.807932,6506.5151};
+			name="Raceway 2";
+			text="Raceway 2";
+			type="City";
+			colorName="ColorOrange";
+		};
+		class Item1
+		{
+			position[]={1897.0887,11.956466,4442.7593};
+			name="Raceway 1";
+			text="Raceway 1";
+			type="City";
+			colorName="ColorOrange";
+		};
+	};
+	class Sensors
+	{
+		items=4;
+		class Item0
+		{
+			position[]={1938.4541,11.612471,4564.332};
+			a=6;
+			b=10;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="Finishline";
+			name="finishline";
+			expActiv="[] call fnc_crossedFinishline;";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={1891.6497,4.4227099,4720.937};
+			a=6;
+			b=10;
+			angle=80.112099;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="cp 3";
+			name="cp3";
+			expActiv="[3] call fnc_crossedCheckpoint;";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={1683.1088,10.994701,4455.1313};
+			a=6;
+			b=10;
+			angle=301.061;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="cp 1";
+			name="cp1";
+			expActiv="[1] call fnc_crossedCheckpoint;";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={1725.1091,13.452731,4538.6079};
+			a=6;
+			b=10;
+			angle=490.495;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="cp 2";
+			name="cp2";
+			expActiv="[2] call fnc_crossedCheckpoint;";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=6600792;
+	class Intel
+	{
+		startWeather=0.050000001;
+		forecastWeather=0.050000001;
+		year=2011;
+		month=1;
+		day=6;
+		hour=13;
+		minute=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=4177086;
+	class Intel
+	{
+		startWeather=0.050000001;
+		forecastWeather=0.050000001;
+		year=2011;
+		month=1;
+		day=6;
+		hour=13;
+		minute=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=1353071;
+	class Intel
+	{
+		startWeather=0.050000001;
+		forecastWeather=0.050000001;
+		year=2011;
+		month=1;
+		day=6;
+		hour=13;
+		minute=0;
+	};
+};
