@@ -9,8 +9,8 @@ fnc_sendBestlistClient = {
 
 fnc_getBesttime = {
 	_playerName = _this select 0;
-	_roundTime 	= _this select 1;
-	bestlist	= bestlist + [_playerName,roundTime];
+	_lapTime 	= _this select 1;
+	bestlist	= bestlist + [_playerName,lapTime];
 	publicVariable "bestlist";
 };
 
