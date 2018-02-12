@@ -1,4 +1,4 @@
-bestlist = [["NotSure","3046535"],["NotSure","782364876"]];
+/*bestlist = [["NotSure","3046535"],["NotSure","782364876"]];
 publicVariable "bestlist";
 
 fnc_sendBestlistClient = {
@@ -18,4 +18,4 @@ fnc_getBesttime = {
 	_fnc = _this select 1;
 	_compiledFnc = compile format["%1",_fnc];
 	call _compiledFnc;
-};
+};*/
