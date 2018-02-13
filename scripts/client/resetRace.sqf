@@ -2,12 +2,17 @@ raceStarted = false;
 racePaused = false;
 
 laps = 0;
-raceTime = 0;
-lapTime = 0;
-raceTimeHuminized = "00:00:0000";
-lapTimeHuminized = "00:00:0000";
-raceTimeArray = "00:00:0000";
-lapTimeArray = ["00","00","0000"];
+raceTimeMili = 0;
+raceTimeSec = 0;
+raceTimeMin = 0;
+raceTimeHour = 0;
+raceTimeHuminized = "00:00:00:0000";
+
+lapTimeMili = 0;
+lapTimeSec = 0;
+lapTimeMin = 0;
+lapTimeHour = 0;
+lapTimeHuminized = "00:00:00:0000";
 
 chpoi1 = false;
 chpoi2 = false;
