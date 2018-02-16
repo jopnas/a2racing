@@ -1,19 +1,24 @@
 raceStarted = false;
 racePaused = false;
 
-rounds = 0;
-raceTime = 0;
-roundTime = 0;
-raceTimeHuminized = "00:00:0000";
-roundTimeHuminized = "00:00:0000";
-raceTimeArray = "00:00:0000";
-roundTimeArray = ["00","00","0000"];
+laps = 0;
+raceTimeMili = 0;
+raceTimeSec = 0;
+raceTimeMin = 0;
+raceTimeHour = 0;
+raceTimeHuminized = "00:00:00:0000";
+
+lapTimeMili = 0;
+lapTimeSec = 0;
+lapTimeMin = 0;
+lapTimeHour = 0;
+lapTimeHuminized = "00:00:00:0000";
 
 chpoi1 = false;
 chpoi2 = false;
 chpoi3 = false;
 
-roundtimes = [];
+lapTimes = [];
 
 /*
 	Function for finishline trigger.
@@ -23,15 +28,19 @@ roundtimes = [];
 */
 fnc_crossedFinishline = {
 	if(!racePaused && raceStarted && chpoi1 && chpoi2 && chpoi3)then{
-		// TODO: send roundtime to server
+		// TODO: send lapTime to server
 
-		serverExec = format["[%1,%2] call fnc_getBesttime",name player,roundTime];
+		serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		publicVariable "serverExec";
 
-		roundtimes = roundtimes + [roundTimeHuminized];
+		lapTimeMili = 0;
+		lapTimeSec = 0;
+		lapTimeMin = 0;
+		lapTimeHour = 0;
+		lapTimeHuminized = "00:00:00:0000";
+		lapTimes = lapTimes + [lapTimeHuminized];
 
-		roundTime = 0;
-		rounds = rounds + 1;
+		laps = laps + 1;
 		chpoi1 = false;
 		chpoi2 = false;
 		chpoi3 = false;
@@ -73,24 +82,29 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf"];
 
 while {alive player} do {
 	if(!racePaused && raceStarted)then{
-		raceTime = raceTime + 1;
-		roundTime = roundTime + 1;
 
-		//raceTimeHuminized = format["%1:%2:%3"(raceTime*60)*60,raceTime*60,raceTime];
-		roundTimeMili 	= roundTime;
-		roundTimeSec 	= floor(roundTime/10);
-		roundTimeMin 	= floor((roundTime/10)/60);
-		
-		raceTimeMili 	=raceTime;
-		raceTimeSec 	= floor(raceTime/10);
-		raceTimeMin 	= floor((raceTime/10)/60);
+		// Time
+		// Racetime
+		raceTimeMili = raceTimeMili + 1;
 
-		if(roundTimeSec < 10)then{
-			roundTimeSec = format["0%1",roundTimeSec];
+		if(raceTimeMili == 1000)then{
+			raceTimeMili	= 0;
+			raceTimeSec		= parseNumber(raceTimeSec) + 1;
 		};
 
-		if(roundTimeMin < 10)then{
-			roundTimeMin = format["0%1",roundTimeMin];
+		if(parseNumber(raceTimeSec) == 60)then{
+			raceTimeSec	= 0;
+			raceTimeMin	= parseNumber(raceTimeMin) + 1;
+		};
+
+		if(parseNumber(raceTimeMin) == 60)then{
+			raceTimeMin		= 0;
+			raceTimeHour	= parseNumber(raceTimeHour) + 1;
+		};
+
+		// Keep at two characters
+		if(raceTimeHour < 10)then{
+			raceTimeHour = format["0%1",raceTimeHour];
 		};
 
 		if(raceTimeSec < 10)then{
@@ -101,9 +115,41 @@ while {alive player} do {
 			raceTimeMin = format["0%1",raceTimeMin];
 		};
 
-		raceTimeHuminized = format["%1:%2:%3",raceTimeMin,raceTimeSec,raceTimeMili];
-		roundTimeHuminized = format["%1:%2:%3",roundTimeMin,roundTimeSec,roundTimeMili];
+		// Laptime
+		lapTimeMili = lapTimeMili + 1;
+
+		if(lapTimeMili == 1000)then{
+			lapTimeMili	= 0;
+			lapTimeSec	= parseNumber(lapTimeSec) + 1;
+		};
+
+		if(parseNumber(lapTimeSec) == 60)then{
+			raceTimeSec	= 0;
+			lapTimeMin	= parseNumber(lapTimeMin) + 1;
+		};
+
+		if(parseNumber(lapTimeMin) == 60)then{
+			lapTimeMin	= 0;
+			lapTimeHour	= parseNumber(lapTimeHour) + 1;
+		};
+
+		// Keep at two characters
+		if(parseNumber(lapTimeHour) < 10)then{
+			lapTimeHour = format["0%1",lapTimeHour];
+		};
+
+		if(parseNumber(lapTimeMin) < 10)then{
+			lapTimeMin = format["0%1",lapTimeMin];
+		};
+
+		if(parseNumber(lapTimeSec) < 10)then{
+			lapTimeSec = format["0%1",lapTimeSec];
+		};
+
+		raceTimeHuminized = format["%1:%2:%3:%4",raceTimeHour,raceTimeMin,raceTimeSec,raceTimeMili];
+		lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHour,lapTimeMin,lapTimeSec,lapTimeMili];
 	};
-	hintSilent format["raceStarted: %1\n racePaused: %2\n rounds: %3\n raceTimeHum.: %4\n roundTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8 \n\nRoundtimes\n\n%9",raceStarted,racePaused,rounds,raceTimeHuminized,roundTimeHuminized,chpoi1,chpoi2,chpoi3,roundtimes];
-	sleep 0.1;
+
+	hintSilent format["raceStarted: %1\n racePaused: %2\n laps: %3\n raceTimeHum.: %4\n lapTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8 \n\nlapTimes\n\n%9",raceStarted,racePaused,laps,raceTimeHuminized,lapTimeHuminized,chpoi1,chpoi2,chpoi3,lapTimes];
+	sleep 0.001;
 };
