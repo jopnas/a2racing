@@ -4,15 +4,15 @@ class Mission
 	addOns[]=
 	{
 		"ibr_lingor",
-		"CAWheeled3_TT650",
 		"camp_armory_misc_plasticpole",
-		"cacharacters2"
+		"cacharacters2",
+		"CAWheeled3_M1030"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters2",
-		"CAWheeled3_TT650",
 		"camp_armory_misc_plasticpole",
+		"CAWheeled3_M1030",
 		"ibr_lingor"
 	};
 	randomSeed=12604501;
@@ -34,10 +34,10 @@ class Mission
 			side="CIV";
 			class Vehicles
 			{
-				items=2;
+				items=1;
 				class Item0
 				{
-					position[]={1954.7206,11.612471,4594.146};
+					position[]={1939.0887,11.612471,4584.9941};
 					azimut=198.2153;
 					special="NONE";
 					id=8;
@@ -49,25 +49,12 @@ class Mission
 					rank="CORPORAL";
 					skill=0.2;
 				};
-				class Item1
-				{
-					position[]={1952.7793,11.612471,4592.1064};
-					azimut=176.74001;
-					special="NONE";
-					id=9;
-					side="CIV";
-					vehicle="TT650_Civ";
-					player="PLAY CDG";
-					lock="UNLOCKED";
-					rank="CORPORAL";
-					skill=0.2;
-				};
 			};
 		};
 	};
 	class Vehicles
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			position[]={1933.285,11.612471,4560.2695};
@@ -131,6 +118,17 @@ class Mission
 			side="EMPTY";
 			vehicle="Plastic_Pole_EP1";
 			skill=0.60000002;
+		};
+		class Item8
+		{
+			position[]={1938.0432,11.612471,4583.4019};
+			azimut=176.74001;
+			special="NONE";
+			age="ACTUAL";
+			id=9;
+			side="EMPTY";
+			vehicle="M1030";
+			skill=0.2;
 		};
 	};
 	class Markers
