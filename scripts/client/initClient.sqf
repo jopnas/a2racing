@@ -92,67 +92,83 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf"];
 			// Racetime
 			raceTimeMili = raceTimeMili + 1;
 
-			if(raceTimeMili >= 1000)then{
-				raceTimeMili	= 0;
-				raceTimeSec		= raceTimeSec + 1;
+			if(raceTimeMili > 1000)then{
+				raceTimeMili = 0;
+			};
+			if(raceTimeMili % 100 == 0)then{
+				raceTimeSec	= raceTimeSec + 1;
 			};
 
-			if(raceTimeSec >= 60)then{
+			if(raceTimeSec > 60)then{
 				raceTimeSec	= 0;
 				raceTimeMin	= raceTimeMin + 1;
 			};
 
-			if(raceTimeMin >= 60)then{
+			if(raceTimeMin > 60)then{
 				raceTimeMin		= 0;
 				raceTimeHour	= raceTimeHour + 1;
 			};
 
 			// Keep at two characters
 			if(raceTimeHour < 10)then{
-				raceTimeHour = format["0%1",raceTimeHour];
+				raceTimeHourStr = format["0%1",raceTimeHour];
+			}else{
+				raceTimeHourStr = format["%1",raceTimeHour];
 			};
 
 			if(raceTimeSec < 10)then{
-				raceTimeSec = format["0%1",raceTimeSec];
+				raceTimeSecStr = format["0%1",raceTimeSec];
+			}else{
+				raceTimeSecStr = format["%1",raceTimeSec];
 			};
 
 			if(raceTimeMin < 10)then{
-				raceTimeMin = format["0%1",raceTimeMin];
+				raceTimeMinStr = format["0%1",raceTimeMin];
+			}else{
+				raceTimeMinStr = format["%1",raceTimeMin];
 			};
 
 			// Laptime
 			lapTimeMili = lapTimeMili + 1;
 
-			if(lapTimeMili >= 1000)then{
+			if(lapTimeMili > 1000)then{
 				lapTimeMili	= 0;
-				lapTimeSec	= lapTimeSec + 1;
 			};
+			if(lapTimeMili % 100 == 0)then{
+				lapTimeSec = lapTimeSec + 1;
+			};	
 
-			if(lapTimeSec >= 60)then{
-				raceTimeSec	= 0;
+			if(lapTimeSec > 60)then{
+				lapTimeSec	= 0;
 				lapTimeMin	= lapTimeMin + 1;
 			};
 
-			if(lapTimeMin >= 60)then{
+			if(lapTimeMin > 60)then{
 				lapTimeMin	= 0;
 				lapTimeHour	= lapTimeHour + 1;
 			};
 
 			// Keep at two characters
 			if(lapTimeHour < 10)then{
-				lapTimeHour = format["0%1",lapTimeHour];
+				lapTimeHourStr = format["0%1",lapTimeHour];
+			}else{
+				lapTimeHourStr = format["%1",lapTimeHour];
 			};
 
-			if(parseNumber(lapTimeMin) < 10)then{
-				lapTimeMin = format["0%1",lapTimeMin];
+			if(lapTimeMin < 10)then{
+				lapTimeMinStr = format["0%1",lapTimeMin];
+			}else{
+				lapTimeMinStr = format["%1",lapTimeMin];
 			};
 
-			if(parseNumber(lapTimeSec) < 10)then{
-				lapTimeSec = format["0%1",lapTimeSec];
+			if(lapTimeSec < 10)then{
+				lapTimeSecStr = format["0%1",lapTimeSec];
+			}else{
+				lapTimeSecStr = format["%1",lapTimeSec];
 			};
 
-			raceTimeHuminized = format["%1:%2:%3:%4",raceTimeHour,raceTimeMin,raceTimeSec,raceTimeMili];
-			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHour,lapTimeMin,lapTimeSec,lapTimeMili];
+			raceTimeHuminized = format["%1:%2:%3:%4",raceTimeHourStr,raceTimeMinStr,raceTimeSecStr,raceTimeMili];
+			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHourStr,lapTimeMinStr,lapTimeSecStr,lapTimeMili];
 		};
 
 		//hintSilent format["raceStarted: %1",raceStarted];
