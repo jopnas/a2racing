@@ -68,9 +68,9 @@ fnc_crossedCheckpoint = {
 };
 
 //Actions
-player addAction ["Start Race", "scripts\client\startRace.sqf"];
-player addAction ["Pause Race", "scripts\client\pauseRace.sqf"];
-player addAction ["! Reset Race", "scripts\client\resetRace.sqf"];
+player addAction ["Start Race", "scripts\client\startRace.sqf",nil,6,false,false,"","serverCommandAvailable '#logout'"];
+player addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","serverCommandAvailable '#logout'"];
+player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,false,"","serverCommandAvailable '#logout'"];
 
 /*
 // Player EventHandlers
