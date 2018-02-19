@@ -10,5 +10,5 @@ if(racePaused)then {
 } else {
 	racePaused = true;
 	_caller removeAction _ID;
-	_caller  addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
+	_caller  addAction ["Continou Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
 };
