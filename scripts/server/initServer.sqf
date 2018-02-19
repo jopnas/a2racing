@@ -7,8 +7,6 @@ publicVariable "racePaused";
 /*bestlist = [["NotSure","3046535"],["NotSure","782364876"]];
 publicVariable "bestlist";
 
-
-
 fnc_sendBestlistClient = {
 	_fnc = _this select 0;
 	clientExec = _fnc;

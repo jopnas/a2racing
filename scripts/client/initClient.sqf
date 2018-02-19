@@ -37,6 +37,8 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 
+		systemChat parseNumber(lapTimeHuminized);
+
 		lapTimes = lapTimes + [lapTimeHuminized];
 
 		lapTimeMili = 0;
@@ -68,10 +70,10 @@ fnc_crossedCheckpoint = {
 	systemChat "crossed checkpoint"; 
 };
 
-//Actions
-player addAction ["Start Race", "scripts\client\startRace.sqf",nil,6,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
-player addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
-player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
+//Actions if MP
+player addAction ["Start Race", "scripts\client\startRace.sqf",nil,6,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+player addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 
 /*
 // Player EventHandlers

@@ -7,7 +7,6 @@ class Mission
 		"camp_armory_misc_plasticpole",
 		"cacharacters2",
 		"CAWheeled3_M1030",
-		"monaro",
 		"f1car"
 	};
 	addOnsAuto[]=
@@ -15,7 +14,6 @@ class Mission
 		"cacharacters2",
 		"camp_armory_misc_plasticpole",
 		"CAWheeled3_M1030",
-		"monaro",
 		"f1car",
 		"ibr_lingor"
 	};
@@ -58,7 +56,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=14;
+		items=10;
 		class Item0
 		{
 			position[]={1933.285,11.612471,4560.2695};
@@ -136,45 +134,9 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={1937.8148,11.612471,4576.5522};
-			azimut=177.56311;
+			position[]={1935.627,11.612471,4574.4629};
+			azimut=177.563;
 			id=10;
-			side="EMPTY";
-			vehicle="Civcar";
-			skill=0.60000002;
-		};
-		class Item10
-		{
-			position[]={1952.6417,11.612471,4604.6851};
-			azimut=177.563;
-			id=11;
-			side="EMPTY";
-			vehicle="civcarbl";
-			skill=0.60000002;
-		};
-		class Item11
-		{
-			position[]={1952.0975,11.612471,4616.5103};
-			azimut=177.563;
-			id=12;
-			side="EMPTY";
-			vehicle="Civcarge";
-			skill=0.60000002;
-		};
-		class Item12
-		{
-			position[]={1952.2333,11.612471,4629.9644};
-			azimut=177.563;
-			id=13;
-			side="EMPTY";
-			vehicle="Civcarsl";
-			skill=0.60000002;
-		};
-		class Item13
-		{
-			position[]={1939.7231,11.612471,4602.481};
-			azimut=177.563;
-			id=14;
 			side="EMPTY";
 			vehicle="f1car";
 			skill=0.60000002;
