@@ -6,9 +6,9 @@ _arguments = _this select 3; //Anything - arguments given to the script if you a
 if(racePaused)then {
 	racePaused = false;
 	_caller removeAction _ID;
-	_caller addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","serverCommandAvailable '#logout'"];
+	_caller  addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
 } else {
 	racePaused = true;
 	_caller removeAction _ID;
-	_caller addAction ["Continue Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","serverCommandAvailable '#logout'"];
+	_caller  addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
 }
