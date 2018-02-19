@@ -1,7 +1,7 @@
 raceStarted = false;
 racePaused = false;
 
-if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
+if(serverCommandAvailable "#logout")then {
 	publicVariable "raceStarted";
 	publicVariable "racePaused";
 };
@@ -37,7 +37,12 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 
-		systemChat parseNumber(lapTimeHuminized);
+		systemChat str ( parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
+
+		_sortedLaptimes = [];
+		{
+
+		} forEach lapTimes;
 
 		lapTimes = lapTimes + [lapTimeHuminized];
 
