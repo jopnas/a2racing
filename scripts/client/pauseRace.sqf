@@ -12,3 +12,7 @@ if(racePaused)then {
 	_caller removeAction _ID;
 	_caller  addAction ["Continou Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') || ((getPlayerUID _target) == '_SP_PLAYER_')"];
 };
+
+if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
+	publicVariable "racePaused";
+};

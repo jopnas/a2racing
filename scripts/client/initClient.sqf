@@ -1,8 +1,10 @@
 raceStarted = false;
 racePaused = false;
 
-publicVariable "raceStarted";
-publicVariable "racePaused";
+if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
+	publicVariable "raceStarted";
+	publicVariable "racePaused";
+};
 
 laps = 0;
 raceTimeMili = 0;
@@ -32,9 +34,8 @@ lapTimes = [];
 fnc_crossedFinishline = {
 	if(!racePaused && raceStarted && chpoi1 && chpoi2 && chpoi3)then{
 		// TODO: send lapTime to server
-
-		serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
-		publicVariable "serverExec";
+		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
+		//publicVariable "serverExec";
 
 		lapTimes = lapTimes + [lapTimeHuminized];
 

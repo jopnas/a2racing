@@ -2,5 +2,7 @@ systemChat "Start Race";
 raceStarted = true;
 racePaused = false;
 
-publicVariable "raceStarted";
-publicVariable "racePaused";
+if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
+	publicVariable "raceStarted";
+	publicVariable "racePaused";
+};
