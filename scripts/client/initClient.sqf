@@ -37,11 +37,13 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 
-		systemChat str ( parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
+		//systemChat str ( parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
 
 		_sortedLaptimes = [];
 		{
-
+			if(parseNumber ([_x, ':'] call CBA_fnc_replace))then{
+				
+			}
 		} forEach lapTimes;
 
 		lapTimes = lapTimes + [lapTimeHuminized];

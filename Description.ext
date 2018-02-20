@@ -1,0 +1,31 @@
+// Sounds
+class CfgSounds {
+    sounds[] = {};
+    /*class transmitterBeep {
+        name = "";
+        sound[] = {"\sounds\transmitterbeep.ogg", 0.5, 1};
+        titles[] = {};
+    };*/
+};
+
+// Match
+class RscTitles {
+    class Default
+    {
+        idd = -1;
+        movingEnable = 0;
+        duration = 4;
+    };
+
+    class player_gui:Default {
+        idd = 6900;
+        movingEnable = 0;
+        duration = 100000;
+        name = "playerGUI";
+        onLoad = "uiNamespace setVariable ['player_display', _this select 0];";
+
+        class controls {
+            
+        };
+    };
+};
