@@ -41,9 +41,10 @@ fnc_crossedFinishline = {
 
 		_sortedLaptimes = [];
 		{
-			if(parseNumber ([_x, ':'] call CBA_fnc_replace))then{
+			systemChat str (parseNumber ([_x, ':'] call CBA_fnc_replace));
+			/*if(parseNumber ([_x, ':'] call CBA_fnc_replace) < )then{
 				
-			}
+			};*/
 		} forEach lapTimes;
 
 		lapTimes = lapTimes + [lapTimeHuminized];
