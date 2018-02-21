@@ -96,6 +96,8 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 };*/
 
 [] spawn {
+	cutRsc ["player_gui", "PLAIN", 1, false];
+
 	while {alive player} do {
 		if(!racePaused && raceStarted)then{
 
@@ -182,7 +184,9 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHourStr,lapTimeMinStr,lapTimeSecStr,lapTimeMili];
 		};
 
-		//hintSilent format["raceStarted: %1",raceStarted];
+		[] execVM "scripts\client\updateGUI.sqf";
+		
+
 		hintSilent format["raceStarted: %1\n racePaused: %2\n laps: %3\n raceTimeHum.: %4\n lapTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8\n lapTimes\n\n%9",raceStarted,racePaused,laps,raceTimeHuminized,lapTimeHuminized,chpoi1,chpoi2,chpoi3,lapTimes];
 		sleep 0.001;
 	};
