@@ -95,9 +95,8 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 	_best = _this select 1;
 };*/
 
+cutRsc ["player_gui", "PLAIN", 1, false];
 [] spawn {
-	cutRsc ["player_gui", "PLAIN", 1, false];
-
 	while {alive player} do {
 		if(!racePaused && raceStarted)then{
 

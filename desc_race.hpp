@@ -1,3 +1,19 @@
+// Sounds
+class CfgSounds {
+    sounds[] = {};
+    class startsignalReady {
+        name = "";
+        sound[] = {"\sounds\startsignalReady.ogg.", 0.5, 1};
+        titles[] = {};
+    };
+    class startsignalGo {
+        name = "";
+        sound[] = {"\sounds\startsignalGo.ogg.", 0.5, 1};
+        titles[] = {};
+    };
+};
+
+// UI
 class RscText
 {
 	type = 0;
@@ -28,22 +44,6 @@ class RscPicture
 	text="";
 };
 
-// Sounds
-class CfgSounds {
-    sounds[] = {};
-    class startsignalReady {
-        name = "";
-        sound[] = {"\sounds\startsignalReady.ogg.", 0.5, 1};
-        titles[] = {};
-    };
-    class startsignalGo {
-        name = "";
-        sound[] = {"\sounds\startsignalGo.ogg.", 0.5, 1};
-        titles[] = {};
-    };
-};
-
-// UI
 class RscTitles {
     class Default
     {
@@ -104,33 +104,53 @@ class RscTitles {
         onLoad = "uiNamespace setVariable ['startsignal_display', _this select 0];";
 
         class controls {
-            class startlightBackground: RscPicture {
+            /*class startlightBackground: RscPicture {
 				idc = 1;
                 text = "";
+				x = 0.3 * safezoneW + safezoneX;
+				y = 0.859137 * safezoneH + safezoneY;
+				w = 0.400445 * safezoneW;
+				h = 0.139148 * safezoneH;
                 colorBackground[]={0,0,0,1};
                 colorText[]={1,1,1,0};
-            };
+            };*/
             class startlight1: RscPicture {
 				idc = 2;
-                text = "";
+                text = "pics\capthat_transmitter_led_off.paa";
+				x = 0.3 * safezoneW + safezoneX;
+				y = 0.859137 * safezoneH + safezoneY;
+				w = 0.400445 * safezoneW;
+				h = 0.239148 * safezoneH;
 	            colorBackground[]={0,0,0,0};
                 colorText[]={0,1,1,1};
             };
             class startlight2: RscPicture {
 				idc = 3;
-                text = "";
-	            colorBackground[]={0,0,0,0};
+                text = "pics\capthat_transmitter_led_off.paa";
+				x = 0.3 * safezoneW + safezoneX;
+				y = 0.959137 * safezoneH + safezoneY;
+				w = 0.400445 * safezoneW;
+				h = 0.239148 * safezoneH;
+	            colorBackground[]={0,0,0,0}; 
                 colorText[]={0,1,1,1};
             };
             class startlight3: RscPicture {
 				idc = 4;
-                text = "";
+                text = "pics\capthat_transmitter_led_off.paa";
+				x = 0.3 * safezoneW + safezoneX;
+				y = 1.059137 * safezoneH + safezoneY;
+				w = 0.400445 * safezoneW;
+				h = 0.239148 * safezoneH;
 	            colorBackground[]={0,0,0,0};
                 colorText[]={0,1,0,1};
             };
             class startlight4: RscPicture {
 				idc = 5;
-                text = "";
+                text = "pics\capthat_transmitter_led_off.paa";
+				x = 0.3 * safezoneW + safezoneX;
+				y = 1.159137 * safezoneH + safezoneY;
+				w = 0.400445 * safezoneW;
+				h = 0.239148 * safezoneH;
 	            colorBackground[]={0,0,0,0};
                 colorText[]={1,0,0,1};
             };
