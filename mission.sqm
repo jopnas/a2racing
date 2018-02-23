@@ -75,7 +75,7 @@ class Mission
 		};
 		class Item2
 		{
-			position[]={1690.4534,11.554152,4457.5806};
+			position[]={1684.9943,10.43106,4447.8403};
 			id=2;
 			side="EMPTY";
 			vehicle="Plastic_Pole_EP1";
@@ -83,7 +83,7 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={1679.8792,11.45102,4464.0049};
+			position[]={1672.2753,10.298309,4450.1743};
 			id=3;
 			side="EMPTY";
 			vehicle="Plastic_Pole_EP1";
@@ -184,28 +184,10 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={1891.6497,4.4227099,4720.937};
+			position[]={1676.8698,9.6958408,4438.9624};
 			a=6;
 			b=10;
-			angle=80.112099;
-			rectangular=1;
-			activationBy="ANY";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			text="cp 3";
-			name="cp3";
-			expActiv="[3] call fnc_crossedCheckpoint;";
-			class Effects
-			{
-			};
-		};
-		class Item2
-		{
-			position[]={1683.1088,10.994701,4455.1313};
-			a=6;
-			b=10;
-			angle=301.061;
+			angle=190.30196;
 			rectangular=1;
 			activationBy="ANY";
 			repeating=1;
@@ -218,12 +200,12 @@ class Mission
 			{
 			};
 		};
-		class Item3
+		class Item2
 		{
-			position[]={1725.1091,13.452731,4538.6079};
+			position[]={1728.2284,13.498431,4541.1401};
 			a=6;
 			b=10;
-			angle=490.495;
+			angle=399.71417;
 			rectangular=1;
 			activationBy="ANY";
 			repeating=1;
@@ -232,6 +214,24 @@ class Mission
 			text="cp 2";
 			name="cp2";
 			expActiv="[2] call fnc_crossedCheckpoint;";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={1891.8,4.5934176,4724.2983};
+			a=6;
+			b=10;
+			angle=349.99783;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="cp 3";
+			name="cp3";
+			expActiv="[3] call fnc_crossedCheckpoint;";
 			class Effects
 			{
 			};

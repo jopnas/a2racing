@@ -3,14 +3,15 @@ class CfgSounds {
     sounds[] = {};
     class startsignalReady {
         name = "";
-        sound[] = {"\sounds\startsignalReady.ogg.", 0.5, 1};
+        sound[] = {"sounds\startsignalReady.ogg", 0.5, 0.7};
         titles[] = {};
     };
     class startsignalGo {
         name = "";
-        sound[] = {"\sounds\startsignalGo.ogg.", 0.5, 1};
+        sound[] = {"sounds\startsignalGo.ogg", 0.5, 0.7};
         titles[] = {};
-    };
+    };  name = "";
+  titles[] = {};
 };
 
 // UI
@@ -44,6 +45,15 @@ class RscPicture
 	text="";
 };
 
+class counterText : RscText {
+	x = 0.5 * safezoneW + safezoneX;
+	w = 0.5 * safezoneW;
+	h = 0.15 * safezoneH;
+	style = 0x00 + 0x10 + 0x200;
+	lineSpacing = 1;
+	sizeEx = 0.034;
+};
+
 class RscTitles {
     class Default
     {
@@ -60,42 +70,31 @@ class RscTitles {
         onLoad = "uiNamespace setVariable ['player_display', _this select 0];";
 
         class controls {
-            class laps: RscText {
+            class laps: counterText {
 				idc = 1;
-				x = 0.3 * safezoneW + safezoneX;
-				y = 0.859137 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.139148 * safezoneH;
+				y = 0.5 * safezoneH + safezoneY;
 				text = "0";
-				style = 0x02 + 0x10 + 0x200;
-				lineSpacing = 1;
-				sizeEx = 0.034;
             };
-            class raceTime: RscText {
+            class raceTime: counterText {
 				idc = 2;
-				x = 0.3 * safezoneW + safezoneX;
-				y = 0.998285 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.139148 * safezoneH;
+				y = 0.52 * safezoneH + safezoneY;
 				text = "00:00:00:0000";
-				style = 0x02 + 0x10 + 0x200;
-				lineSpacing = 1;
-				sizeEx = 0.034;
             };
-            class lapTime: RscText {
+            class lapTime: counterText {
 				idc = 3;
-				x = 0.3 * safezoneW + safezoneX;
-				y = 1.137433 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.139148 * safezoneH;
+				y = 0.54 * safezoneH + safezoneY;
 				text = "00:00:00:0000";
-				style = 0x02 + 0x10 + 0x200;
-				lineSpacing = 1;
-				sizeEx = 0.034;
             };
         };
     };
 
+	class startlightDefault: RscPicture {
+		text = "pics\capthat_transmitter_led_off.paa";
+		x = 0.5 * safezoneW + safezoneX;
+		w = 0.05 * safezoneW;
+		h = 0.08 * safezoneH;
+		colorBackground[]={0,0,0,0};
+	};
     class startSignal_gui:Default {
         idd = 6901;
         movingEnable = 0;
@@ -104,55 +103,36 @@ class RscTitles {
         onLoad = "uiNamespace setVariable ['startsignal_display', _this select 0];";
 
         class controls {
-            /*class startlightBackground: RscPicture {
-				idc = 1;
-                text = "";
-				x = 0.3 * safezoneW + safezoneX;
-				y = 0.859137 * safezoneH + safezoneY;
+            class startlightBackground: RscPicture {
+				idc = 4;
+                text = "pics\startlights_background.paa";
+				x = 0.5 * safezoneW + safezoneX;
+				y = 0.35 * safezoneH + safezoneY;
 				w = 0.400445 * safezoneW;
 				h = 0.139148 * safezoneH;
                 colorBackground[]={0,0,0,1};
                 colorText[]={1,1,1,0};
-            };*/
-            class startlight1: RscPicture {
-				idc = 2;
-                text = "pics\capthat_transmitter_led_off.paa";
-				x = 0.3 * safezoneW + safezoneX;
-				y = 0.859137 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.239148 * safezoneH;
-	            colorBackground[]={0,0,0,0};
-                colorText[]={0,1,1,1};
             };
-            class startlight2: RscPicture {
-				idc = 3;
-                text = "pics\capthat_transmitter_led_off.paa";
-				x = 0.3 * safezoneW + safezoneX;
-				y = 0.959137 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.239148 * safezoneH;
-	            colorBackground[]={0,0,0,0}; 
-                colorText[]={0,1,1,1};
-            };
-            class startlight3: RscPicture {
-				idc = 4;
-                text = "pics\capthat_transmitter_led_off.paa";
-				x = 0.3 * safezoneW + safezoneX;
-				y = 1.059137 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.239148 * safezoneH;
-	            colorBackground[]={0,0,0,0};
-                colorText[]={0,1,0,1};
-            };
-            class startlight4: RscPicture {
+
+            class startlight1: startlightDefault {
 				idc = 5;
-                text = "pics\capthat_transmitter_led_off.paa";
-				x = 0.3 * safezoneW + safezoneX;
-				y = 1.159137 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.239148 * safezoneH;
-	            colorBackground[]={0,0,0,0};
-                colorText[]={1,0,0,1};
+				y = 0.35 * safezoneH + safezoneY;
+                colorText[]={1,1,0,0.7};
+            };
+            class startlight2: startlightDefault {
+				idc = 6;
+				y = 0.45 * safezoneH + safezoneY;
+                colorText[]={1,1,0,0.7};
+            };
+            class startlight3: startlightDefault {
+				idc = 7;
+				y = 0.55 * safezoneH + safezoneY;
+                colorText[]={0,1,0,0.7};
+            };
+            class startlight4: startlightDefault {
+				idc = 8;
+				y = 0.65 * safezoneH + safezoneY;
+                colorText[]={0.5,0,0,0.7};
             };
         };
     };
