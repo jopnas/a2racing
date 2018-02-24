@@ -46,12 +46,13 @@ class RscPicture
 };
 
 class counterText : RscText {
-	x = 0.5 * safezoneW + safezoneX;
+	x = 0.5 * safezoneW + safezoneX - (0.5 * safezoneW / 2);
 	w = 0.5 * safezoneW;
 	h = 0.15 * safezoneH;
 	style = 0x00 + 0x10 + 0x200;
 	lineSpacing = 1;
-	sizeEx = 0.034;
+	sizeEx = 0.04;
+    shadow = 1;
 };
 
 class RscTitles {
@@ -62,33 +63,7 @@ class RscTitles {
         duration = 4;
     };
 
-    class player_gui:Default {
-        idd = 6900;
-        movingEnable = 0;
-        duration = 100000;
-        name = "playerGUI";
-        onLoad = "uiNamespace setVariable ['player_display', _this select 0];";
-
-        class controls {
-            class laps: counterText {
-				idc = 1;
-				y = 0.5 * safezoneH + safezoneY;
-				text = "0";
-            };
-            class raceTime: counterText {
-				idc = 2;
-				y = 0.52 * safezoneH + safezoneY;
-				text = "00:00:00:0000";
-            };
-            class lapTime: counterText {
-				idc = 3;
-				y = 0.54 * safezoneH + safezoneY;
-				text = "00:00:00:0000";
-            };
-        };
-    };
-
-	class startlightDefault: RscPicture {
+ 	class startlightDefault: RscPicture {
 		text = "pics\capthat_transmitter_led_off.paa";
 		x = 0.5 * safezoneW + safezoneX;
 		w = 0.05 * safezoneW;
@@ -103,37 +78,70 @@ class RscTitles {
         onLoad = "uiNamespace setVariable ['startsignal_display', _this select 0];";
 
         class controls {
-            class startlightBackground: RscPicture {
-				idc = 4;
-                text = "pics\startlights_background.paa";
-				x = 0.5 * safezoneW + safezoneX;
-				y = 0.35 * safezoneH + safezoneY;
-				w = 0.400445 * safezoneW;
-				h = 0.139148 * safezoneH;
-                colorBackground[]={0,0,0,1};
-                colorText[]={1,1,1,0};
+            class startlightBackground: RscPicture { // Not in use. Looks better without
+				idc = 1;
+                text = "pics\signallights_background.paa";
+				x = 0.49 * safezoneW + safezoneX;
+				y = 0.33 * safezoneH + safezoneY;
+				w = 0.07 * safezoneW;
+				h = 0.415 * safezoneH;
+                colorBackground[]={0,0,0,0};
+                colorText[]={1,1,1,1};
             };
 
             class startlight1: startlightDefault {
-				idc = 5;
-				y = 0.35 * safezoneH + safezoneY;
+				idc = 2;
+				y = 0.345 * safezoneH + safezoneY;
                 colorText[]={1,1,0,0.7};
             };
             class startlight2: startlightDefault {
-				idc = 6;
-				y = 0.45 * safezoneH + safezoneY;
+				idc = 3;
+				y = 0.445 * safezoneH + safezoneY;
                 colorText[]={1,1,0,0.7};
             };
             class startlight3: startlightDefault {
-				idc = 7;
+				idc = 4;
 				y = 0.55 * safezoneH + safezoneY;
                 colorText[]={0,1,0,0.7};
             };
             class startlight4: startlightDefault {
-				idc = 8;
+				idc = 5;
 				y = 0.65 * safezoneH + safezoneY;
                 colorText[]={0.5,0,0,0.7};
             };
+        };
+    };   
+
+    class player_gui:Default {
+        idd = 6900;
+        movingEnable = 0;
+        duration = 100000;
+        name = "playerGUI";
+        onLoad = "uiNamespace setVariable ['player_display', _this select 0];";
+
+        class controls {
+            class laps: counterText {
+				idc = 6;
+				y = 0.9 * safezoneH + safezoneY;
+				text = "0";
+            };
+            class raceTime: counterText {
+				idc = 7;
+				y = 0.92 * safezoneH + safezoneY;
+				text = "00:00:00:0000";
+            };
+            class lapTime: counterText {
+				idc = 8;
+				y = 0.94 * safezoneH + safezoneY;
+				text = "00:00:00:0000";
+            };
+            
+            class highscore: counterText {
+				idc = 9;
+                x = 0.7 * safezoneW + safezoneX - (0.3 * safezoneW / 2);
+				y = 0.9 * safezoneH + safezoneY;
+				text = "00:00:00:0000";
+            };            
         };
     };
 };

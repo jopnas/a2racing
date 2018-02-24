@@ -6,14 +6,12 @@ class Mission
 		"ibr_lingor",
 		"camp_armory_misc_plasticpole",
 		"cacharacters2",
-		"CAWheeled3_M1030",
 		"f1car"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters2",
 		"camp_armory_misc_plasticpole",
-		"CAWheeled3_M1030",
 		"f1car",
 		"ibr_lingor"
 	};
@@ -30,7 +28,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=1;
+		items=6;
 		class Item0
 		{
 			side="CIV";
@@ -39,8 +37,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={1939.0887,11.612471,4584.9941};
-					azimut=198.2153;
+					position[]={1939.0887,11.612471,4587.8804};
+					azimut=353.62271;
 					special="NONE";
 					id=8;
 					side="CIV";
@@ -53,10 +51,115 @@ class Mission
 				};
 			};
 		};
+		class Item1
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1943.9037,11.612471,4587.9878};
+					azimut=353.62271;
+					special="NONE";
+					id=15;
+					side="CIV";
+					vehicle="Rocker1";
+					leader=1;
+					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+			};
+		};
+		class Item2
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1934.3806,11.612471,4587.2388};
+					azimut=353.62271;
+					special="NONE";
+					id=16;
+					side="CIV";
+					vehicle="Rocker1";
+					leader=1;
+					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+			};
+		};
+		class Item3
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1935.2365,11.612471,4583.3906};
+					azimut=353.62271;
+					special="NONE";
+					id=17;
+					side="CIV";
+					vehicle="Rocker1";
+					leader=1;
+					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+			};
+		};
+		class Item4
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1940.0518,11.612471,4583.9248};
+					azimut=353.62271;
+					special="NONE";
+					id=18;
+					side="CIV";
+					vehicle="Rocker1";
+					leader=1;
+					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+			};
+		};
+		class Item5
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1944.5458,11.612471,4583.7109};
+					azimut=353.62271;
+					special="NONE";
+					id=19;
+					side="CIV";
+					vehicle="Rocker1";
+					leader=1;
+					lock="UNLOCKED";
+					rank="CORPORAL";
+					skill=0.2;
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
-		items=10;
+		items=14;
 		class Item0
 		{
 			position[]={1933.285,11.612471,4560.2695};
@@ -123,20 +226,54 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={1953.55,11.612471,4594.0024};
-			azimut=176.74001;
-			special="NONE";
-			age="ACTUAL";
+			position[]={1935.9478,11.612471,4571.6836};
+			azimut=178.99478;
 			id=9;
 			side="EMPTY";
-			vehicle="M1030";
-			skill=0.2;
+			vehicle="f1car";
+			skill=0.60000002;
 		};
 		class Item9
 		{
-			position[]={1935.627,11.612471,4574.4629};
-			azimut=177.563;
+			position[]={1942.5819,11.612471,4580.6641};
+			azimut=178.99478;
 			id=10;
+			side="EMPTY";
+			vehicle="f1car";
+			skill=0.60000002;
+		};
+		class Item10
+		{
+			position[]={1936.0546,11.612471,4594.8833};
+			azimut=178.99478;
+			id=11;
+			side="EMPTY";
+			vehicle="f1car";
+			skill=0.60000002;
+		};
+		class Item11
+		{
+			position[]={1942.3678,11.612471,4607.7114};
+			azimut=178.99478;
+			id=12;
+			side="EMPTY";
+			vehicle="f1car";
+			skill=0.60000002;
+		};
+		class Item12
+		{
+			position[]={1936.1616,11.612471,4618.938};
+			azimut=178.99478;
+			id=13;
+			side="EMPTY";
+			vehicle="f1car";
+			skill=0.60000002;
+		};
+		class Item13
+		{
+			position[]={1942.3678,11.612471,4626.9546};
+			azimut=178.99478;
+			id=14;
 			side="EMPTY";
 			vehicle="f1car";
 			skill=0.60000002;
@@ -167,8 +304,8 @@ class Mission
 		items=4;
 		class Item0
 		{
-			position[]={1938.8325,11.612471,4550.2905};
-			a=6;
+			position[]={1937.4115,11.613892,4549.5801};
+			a=7;
 			b=10;
 			rectangular=1;
 			activationBy="ANY";
@@ -185,9 +322,9 @@ class Mission
 		class Item1
 		{
 			position[]={1676.8698,9.6958408,4438.9624};
-			a=6;
+			a=9;
 			b=10;
-			angle=190.30196;
+			angle=190.302;
 			rectangular=1;
 			activationBy="ANY";
 			repeating=1;
@@ -203,9 +340,9 @@ class Mission
 		class Item2
 		{
 			position[]={1728.2284,13.498431,4541.1401};
-			a=6;
+			a=9;
 			b=10;
-			angle=399.71417;
+			angle=399.71399;
 			rectangular=1;
 			activationBy="ANY";
 			repeating=1;
@@ -221,9 +358,9 @@ class Mission
 		class Item3
 		{
 			position[]={1891.8,4.5934176,4724.2983};
-			a=6;
+			a=9;
 			b=10;
-			angle=349.99783;
+			angle=349.99799;
 			rectangular=1;
 			activationBy="ANY";
 			repeating=1;

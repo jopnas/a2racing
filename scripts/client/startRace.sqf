@@ -2,10 +2,10 @@ disableSerialization;
 4 cutRsc ["startSignal_gui","PLAIN",0];
 _namespaceUI = uiNamespace getVariable "startsignal_display";
 
-_ctrlLight1	= _namespaceUI displayCtrl 5;
-_ctrlLight2	= _namespaceUI displayCtrl 6;
-_ctrlLight3	= _namespaceUI displayCtrl 7;
-_ctrlLight4	= _namespaceUI displayCtrl 8;
+_ctrlLight1	= _namespaceUI displayCtrl 2;
+_ctrlLight2	= _namespaceUI displayCtrl 3;
+_ctrlLight3	= _namespaceUI displayCtrl 4;
+_ctrlLight4	= _namespaceUI displayCtrl 5;
 
 sleep 2;
 systemChat "Start Race in 3";
@@ -35,7 +35,5 @@ if(serverCommandAvailable "#logout")then {
 	publicVariable "racePaused";
 };
 
-sleep 3;
-
-4 cutFadeOut 4;
+4 cutFadeOut 2;
 

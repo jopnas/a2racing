@@ -6,6 +6,8 @@ if(serverCommandAvailable "#logout")then {
 	publicVariable "racePaused";
 };
 
+sortedLaptimes = [];
+
 laps = 0;
 raceTimeMili = 0;
 raceTimeSec = 0;
@@ -37,17 +39,20 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 
-		//systemChat str ( parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
-
-		_sortedLaptimes = [];
-		{
-			systemChat str (parseNumber ([_x, ':'] call CBA_fnc_replace));
-			/*if(parseNumber ([_x, ':'] call CBA_fnc_replace) < )then{
-				
-			};*/
-		} forEach lapTimes;
-
 		lapTimes = lapTimes + [lapTimeHuminized];
+
+		if(count lapTimes > 0)then {
+			sortedLaptimes = [];
+			{
+				systemChat str (parseNumber ([_x, ':'] call CBA_fnc_replace));
+				systemChat str (parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
+				if(parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace) >= parseNumber ([_x, ':'] call CBA_fnc_replace) )then{
+					sortedLaptimes = [lapTimeHuminized] + sortedLaptimes;
+				}else{
+					sortedLaptimes = sortedLaptimes + _x;
+				};
+			} forEach lapTimes;
+		};
 
 		lapTimeMili = 0;
 		lapTimeSec = 0;
@@ -60,7 +65,7 @@ fnc_crossedFinishline = {
 		chpoi2 = false;
 		chpoi3 = false;
 
-		systemChat "crossed finishline"; 
+		//systemChat "crossed finishline"; 
 	};
 };
 
@@ -75,7 +80,7 @@ fnc_crossedCheckpoint = {
 	_compiledFnc = compile format["chpoi%1 = true;",_chpoiNo];
 	call _compiledFnc;
 
-	systemChat "crossed checkpoint"; 
+	//systemChat "crossed checkpoint"; 
 };
 
 //Actions if MP
@@ -187,7 +192,7 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 		[] execVM "scripts\client\updateGUI.sqf";
 		
 
-		hintSilent format["raceStarted: %1\n racePaused: %2\n laps: %3\n raceTimeHum.: %4\n lapTimeHum.: %5\n chpoi1: %6\n chpoi2: %7\n chpoi3: %8\n lapTimes\n\n%9",raceStarted,racePaused,laps,raceTimeHuminized,lapTimeHuminized,chpoi1,chpoi2,chpoi3,lapTimes];
+		hintSilent format["raceStarted: %1\n racePaused: %2\n chpoi1: %3\n chpoi2: %4\n chpoi3: %5\n lapTimes\n\n%6",raceStarted,racePaused,chpoi1,chpoi2,chpoi3,lapTimes];
 		sleep 0.001;
 	};
 };
