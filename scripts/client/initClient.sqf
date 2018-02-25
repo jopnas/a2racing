@@ -110,19 +110,19 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 			// Racetime
 			raceTimeMili = raceTimeMili + 1;
 
-			if(raceTimeMili > 1000)then{
+			if(raceTimeMili >= 1000)then{
 				raceTimeMili = 0;
 			};
 			if(raceTimeMili % 100 == 0)then{
 				raceTimeSec	= raceTimeSec + 1;
 			};
 
-			if(raceTimeSec > 60)then{
+			if(raceTimeSec >= 60)then{
 				raceTimeSec	= 0;
 				raceTimeMin	= raceTimeMin + 1;
 			};
 
-			if(raceTimeMin > 60)then{
+			if(raceTimeMin >= 60)then{
 				raceTimeMin		= 0;
 				raceTimeHour	= raceTimeHour + 1;
 			};
@@ -149,19 +149,19 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 			// Laptime
 			lapTimeMili = lapTimeMili + 1;
 
-			if(lapTimeMili > 1000)then{
+			if(lapTimeMili >= 1000)then{
 				lapTimeMili	= 0;
 			};
 			if(lapTimeMili % 100 == 0)then{
 				lapTimeSec = lapTimeSec + 1;
 			};	
 
-			if(lapTimeSec > 60)then{
+			if(lapTimeSec >= 60)then{
 				lapTimeSec	= 0;
 				lapTimeMin	= lapTimeMin + 1;
 			};
 
-			if(lapTimeMin > 60)then{
+			if(lapTimeMin >= 60)then{
 				lapTimeMin	= 0;
 				lapTimeHour	= lapTimeHour + 1;
 			};
@@ -192,7 +192,7 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 		[] execVM "scripts\client\updateGUI.sqf";
 		
 
-		hintSilent format["raceStarted: %1\n racePaused: %2\n chpoi1: %3\n chpoi2: %4\n chpoi3: %5\n lapTimes\n\n%6",raceStarted,racePaused,chpoi1,chpoi2,chpoi3,lapTimes];
+		hintSilent format["raceStarted: %1\n racePaused: %2\n chpoi1: %3\n chpoi2: %4\n chpoi3: %5\n",raceStarted,racePaused,chpoi1,chpoi2,chpoi3];
 		sleep 0.001;
 	};
 };
