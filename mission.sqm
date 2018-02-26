@@ -281,7 +281,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			position[]={6001.1523,17.807932,6506.5151};
@@ -297,6 +297,15 @@ class Mission
 			text="Raceway 1";
 			type="City";
 			colorName="ColorOrange";
+		};
+		class Item2
+		{
+			position[]={1950.9331,11.612471,4609.0093};
+			name="PitStop";
+			markerType="RECTANGLE";
+			type="Empty";
+			a=5;
+			b=10;
 		};
 	};
 	class Sensors
