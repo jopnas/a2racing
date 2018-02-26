@@ -3,12 +3,12 @@ class CfgSounds {
     sounds[] = {};
     class startsignalReady {
         name = "";
-        sound[] = {"sounds\startsignalReady.ogg", 0.5, 0.7};
+        sound[] = {"a2racing\sounds\startsignalReady.ogg", 0.5, 0.7};
         titles[] = {};
     };
     class startsignalGo {
         name = "";
-        sound[] = {"sounds\startsignalGo.ogg", 0.5, 0.7};
+        sound[] = {"a2racing\sounds\startsignalGo.ogg", 0.5, 0.7};
         titles[] = {};
     };  name = "";
   titles[] = {};
@@ -64,7 +64,7 @@ class RscTitles {
     };
 
  	class startlightDefault: RscPicture {
-		text = "pics\capthat_transmitter_led_off.paa";
+		text = "a2racing\pics\capthat_transmitter_led_off.paa";
 		x = 0.5 * safezoneW + safezoneX;
 		w = 0.05 * safezoneW;
 		h = 0.08 * safezoneH;
@@ -80,7 +80,7 @@ class RscTitles {
         class controls {
             class startlightBackground: RscPicture { // Not in use. Looks better without
 				idc = 1;
-                text = "pics\signallights_background.paa";
+                text = "a2racing\pics\signallights_background.paa";
 				x = 0.49 * safezoneW + safezoneX;
 				y = 0.33 * safezoneH + safezoneY;
 				w = 0.07 * safezoneW;

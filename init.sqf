@@ -1,7 +1,7 @@
 if(!isDedicated)then{
-	[] execVM "scripts\client\initClient.sqf";
+	[] execVM "a2racing\scripts\client\initClient.sqf";
 };
 
 if(isServer)then{
-	[] execVM "scripts\server\initServer.sqf";
+	[] execVM "a2racing\scripts\server\initServer.sqf";
 };

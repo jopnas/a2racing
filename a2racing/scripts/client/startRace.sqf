@@ -10,22 +10,22 @@ _ctrlLight4	= _namespaceUI displayCtrl 5;
 sleep 2;
 systemChat "Start Race in 3";
 playSound ["startsignalReady", false];
-_ctrlLight1 ctrlSetText "pics\capthat_transmitter_led_on.paa";
+_ctrlLight1 ctrlSetText "a2racing\pics\capthat_transmitter_led_on.paa";
 
 sleep 2;
 systemChat "Start Race in 2";
 playSound ["startsignalReady", false];
-_ctrlLight2 ctrlSetText "pics\capthat_transmitter_led_on.paa";
+_ctrlLight2 ctrlSetText "a2racing\pics\capthat_transmitter_led_on.paa";
 
 sleep 2;
 systemChat "Start Race in 1";
 playSound ["startsignalReady", false];
-_ctrlLight3 ctrlSetText "pics\capthat_transmitter_led_on.paa";
+_ctrlLight3 ctrlSetText "a2racing\pics\capthat_transmitter_led_on.paa";
 
 sleep 2;
 systemChat "GO! GO! GO!";
 playSound ["startsignalGo", false];
-_ctrlLight4 ctrlSetText "pics\capthat_transmitter_led_on.paa";
+_ctrlLight4 ctrlSetText "a2racing\pics\capthat_transmitter_led_on.paa";
 
 raceStarted = true;
 racePaused = false;

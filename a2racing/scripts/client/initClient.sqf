@@ -84,9 +84,9 @@ fnc_crossedCheckpoint = {
 };
 
 //Actions if MP
-player addAction ["Start Race", "scripts\client\startRace.sqf",nil,6,false,false,"","(serverCommandAvailable '#logout') or isServer"];
-player addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
-player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+player addAction ["Start Race", "a2racing\scripts\client\startRace.sqf",nil,6,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+player addAction ["Pause Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 
 /*
 // Player EventHandlers
@@ -189,7 +189,7 @@ player addAction ["! Reset Race", "scripts\client\resetRace.sqf",nil,4,false,fal
 			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHourStr,lapTimeMinStr,lapTimeSecStr,lapTimeMili];
 		};
 
-		[] execVM "scripts\client\updateGUI.sqf";
+		[] execVM "a2racing\scripts\client\updateGUI.sqf";
 		
 
 		hintSilent format["raceStarted: %1\n racePaused: %2\n chpoi1: %3\n chpoi2: %4\n chpoi3: %5\n",raceStarted,racePaused,chpoi1,chpoi2,chpoi3];

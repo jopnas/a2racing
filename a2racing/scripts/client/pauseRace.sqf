@@ -6,11 +6,11 @@ _arguments = _this select 3; //Anything - arguments given to the script if you a
 if(racePaused)then {
 	racePaused = false;
 	_caller removeAction _ID;
-	_caller  addAction ["Pause Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
+	_caller  addAction ["Pause Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 } else {
 	racePaused = true;
 	_caller removeAction _ID;
-	_caller  addAction ["Continou Race", "scripts\client\pauseRace.sqf",nil,5,false,false,"","((serverCommandAvailable '#logout') or isServer)"];
+	_caller  addAction ["Continou Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","((serverCommandAvailable '#logout') or isServer)"];
 };
 
 if(serverCommandAvailable "#logout")then {
