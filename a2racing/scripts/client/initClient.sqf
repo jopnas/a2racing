@@ -40,7 +40,10 @@ fnc_crossedFinishline = {
 		//publicVariable "serverExec";
 
 		// parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace)
-		lapTimes set [count lapTimes, [lapTimeHuminized,parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace)]];
+		//lapTimes set [count lapTimes, [lapTimeHuminized,parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace)]];
+		
+		lapTimeNumber = [lapTimeHuminized,":",""] execVM "a2racing\scripts\stringReplace.sqf"
+		lapTimes set [count lapTimes, [lapTimeHuminized,lapTimeNumber]];
 
 		if(count lapTimes > 1)then {
 			// BIS_fnc_sortNum
