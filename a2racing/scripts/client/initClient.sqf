@@ -39,19 +39,14 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 
-		lapTimes = lapTimes + [lapTimeHuminized];
+		// parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace)
+		lapTimes set [count lapTimes, [lapTimeHuminized,parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace)]];
 
-		if(count lapTimes > 0)then {
-			sortedLaptimes = [];
-			{
-				systemChat str (parseNumber ([_x, ':'] call CBA_fnc_replace));
-				systemChat str (parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace));
-				if(parseNumber ([lapTimeHuminized, ':'] call CBA_fnc_replace) >= parseNumber ([_x, ':'] call CBA_fnc_replace) )then{
-					sortedLaptimes = [lapTimeHuminized] + sortedLaptimes;
-				}else{
-					sortedLaptimes = sortedLaptimes + _x;
-				};
-			} forEach lapTimes;
+		if(count lapTimes > 1)then {
+			// BIS_fnc_sortNum
+			sortedLaptimes = [lapTimes,{(_x select 1)}] execVM "a2racing\scripts\sortArray.sqf";
+		}else{
+			sortedLaptimes = lapTimes;
 		};
 
 		lapTimeMili = 0;
