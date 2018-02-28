@@ -6,12 +6,18 @@ class CfgSounds {
         sound[] = {"a2racing\sounds\startsignalReady.ogg", 0.5, 0.7};
         titles[] = {};
     };
+
     class startsignalGo {
         name = "";
         sound[] = {"a2racing\sounds\startsignalGo.ogg", 0.5, 0.7};
         titles[] = {};
-    };  name = "";
-  titles[] = {};
+    };
+
+    class pitstopn {
+        name = "";
+        sound[] = {"a2racing\sounds\pitstop.ogg", 0.5, 0.7};
+        titles[] = {};
+    };
 };
 
 // UI
