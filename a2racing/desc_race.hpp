@@ -13,7 +13,7 @@ class CfgSounds {
         titles[] = {};
     };
 
-    class pitstopn {
+    class pitstop {
         name = "";
         sound[] = {"a2racing\sounds\pitstop.ogg", 0.5, 0.7};
         titles[] = {};

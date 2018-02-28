@@ -9,8 +9,10 @@ while {true} do {
 			_vehicle enableSimulation false;
 			_vehiclePos = getPosATL _vehicle;
 			_vehicle setPosATL [_vehiclePos select 0,_vehiclePos select 1,(_vehiclePos select 2) + 0.3];
+			playSound ["pitstop", false];
+
 			hintSilent "Supplying your vehicle. Don't move!";
-			sleep 5;
+			sleep 12;
 
 			_vehicle enableSimulation true;
 
