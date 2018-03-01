@@ -8,11 +8,10 @@ while {true} do {
 		if (((speed _vehicle) < 3) && ((_pitPosition distance _vehicle) < 5) && (fuel _vehicle < 1 || damage _vehicle > 0)) then {
 			_vehicle enableSimulation false;
 			_vehiclePos = getPosATL _vehicle;
-			_vehicle setPosATL [_vehiclePos select 0,_vehiclePos select 1,(_vehiclePos select 2) + 0.3];
+			_vehicle setPosATL [_vehiclePos select 0,_vehiclePos select 1,(_vehiclePos select 2) + 0.2];
 			playSound ["pitstop", false];
-
 			hintSilent "Supplying your vehicle. Don't move!";
-			sleep 12;
+			sleep 10;
 
 			_vehicle enableSimulation true;
 
