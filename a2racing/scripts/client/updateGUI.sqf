@@ -1,4 +1,5 @@
 disableSerialization;
+private["_uiLaptimes"];
 _namespaceUI = uiNamespace getVariable "player_display";
 
 _ctrlLapsCountText 	= _namespaceUI displayCtrl 6;
@@ -30,4 +31,4 @@ switch(count sortedLaptimes)do{
 		_uiLaptimes = "";
 	};
 };
-_ctrlHighscoreText ctrlSetText format["%1",_uiLaptimes];
+_ctrlHighscoreText ctrlSetText parseText _uiLaptimes;
