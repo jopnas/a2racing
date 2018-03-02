@@ -1,9 +1,11 @@
 raceStarted = false;
 racePaused = false;
+raceFinished = false;
 
 if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
 	publicVariable "raceStarted";
 	publicVariable "racePaused";
+	publicVariable "raceFinished";
 };
 
 laps = 0;

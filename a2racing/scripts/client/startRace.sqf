@@ -29,10 +29,12 @@ _ctrlLight4 ctrlSetText "a2racing\pics\capthat_transmitter_led_on.paa";
 
 raceStarted = true;
 racePaused = false;
+raceFinished = false;
 
 if(serverCommandAvailable "#logout")then {
 	publicVariable "raceStarted";
 	publicVariable "racePaused";
+	publicVariable "raceFinished";
 };
 
 4 cutFadeOut 2;

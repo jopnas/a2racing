@@ -1,10 +1,18 @@
-raceStarted = false;
-racePaused = false;
-
 publicVariable "raceStarted";
 publicVariable "racePaused";
 
-/*bestlist = [["NotSure","3046535"],["NotSure","782364876"]];
+/*
+	//lapTimeNumber = [lapTimeHuminized,":",""] call fnc_stringReplace;
+	//lapTimes set [count lapTimes, [lapTimeHuminized,lapTimeNumber]];
+
+	//if(count lapTimes > 1)then {
+	//	// BIS_fnc_sortNum
+	//	sortedLaptimes = [lapTimes,{(_x select 1)}] call fnc_sortArray;
+	//}else{
+	//	sortedLaptimes = lapTimes;
+	//};
+
+bestlist = [["NotSure","3046535"],["NotSure","782364876"]];
 publicVariable "bestlist";
 
 fnc_sendBestlistClient = {
