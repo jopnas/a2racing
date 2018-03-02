@@ -11,24 +11,9 @@ _ctrlLapsCountText ctrlSetText format["Laps: %1",laps];
 _ctrlRaceTimeText ctrlSetText format["Racetime: %1",raceTimeHuminized];
 _ctrlLapTimeText ctrlSetText format["Laptime: %1",lapTimeHuminized];
 
-switch(count sortedLaptimes)do{
-	case 1:{
-		_uiLaptimes = (sortedLaptimes select 0) select 0;
-	};
-	case 2:{
-		_uiLaptimes = composeText [(sortedLaptimes select 0) select 0, lineBreak, (sortedLaptimes select 1) select 0];
-	};
-	case 3:{
-		_uiLaptimes = composeText [(sortedLaptimes select 0) select 0, lineBreak, (sortedLaptimes select 1) select 0, lineBreak, (sortedLaptimes select 2) select 0];
-	};
-	case 4:{
-		_uiLaptimes = composeText [(sortedLaptimes select 0) select 0, lineBreak, (sortedLaptimes select 1) select 0, lineBreak, (sortedLaptimes select 2) select 0, lineBreak, (sortedLaptimes select 3) select 0];
-	};
-	case 5:{
-		_uiLaptimes = composeText [(sortedLaptimes select 0) select 0, lineBreak, (sortedLaptimes select 1) select 0, lineBreak, (sortedLaptimes select 2) select 0, lineBreak, (sortedLaptimes select 3) select 0,	lineBreak, (sortedLaptimes select 4) select 0];
-	};
-	default {
-		_uiLaptimes = "";
-	};
+for "_i" from 0 to (count sortedLaptimes) do {
+	_uiLaptimes = format["%1<br />%2",_uiLaptimes, (sortedLaptimes select _i) select 0];
+	if(_i == 2)exitWith{};
 };
-_ctrlHighscoreText ctrlSetStructuredText _uiLaptimes;
+
+_ctrlHighscoreText ctrlSetStructuredText parseText _uiLaptimes;
