@@ -31,4 +31,4 @@ switch(count sortedLaptimes)do{
 		_uiLaptimes = "";
 	};
 };
-_ctrlHighscoreText ctrlSetText parseText _uiLaptimes;
+_ctrlHighscoreText ctrlSetStructuredText _uiLaptimes;
