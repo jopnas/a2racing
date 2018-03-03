@@ -1,5 +1,4 @@
 disableSerialization;
-private["_uiLaptimes"];
 _namespaceUI = uiNamespace getVariable "player_display";
 
 _ctrlLapsCountText 	= _namespaceUI displayCtrl 6;
@@ -11,9 +10,13 @@ _ctrlLapsCountText ctrlSetText format["Laps: %1",laps];
 _ctrlRaceTimeText ctrlSetText format["Racetime: %1",raceTimeHuminized];
 _ctrlLapTimeText ctrlSetText format["Laptime: %1",lapTimeHuminized];
 
-for "_i" from 0 to (count sortedLaptimes) do {
-	_uiLaptimes = format["%1<br />%2",_uiLaptimes, (sortedLaptimes select _i) select 0];
-	if(_i == 2)exitWith{};
+systemChat str sortedLaptimes;
+_uiLaptimes = "";
+if(count sortedLaptimes > 0)then{
+	for "_i" from 0 to (count sortedLaptimes) do {
+		_uiLaptimes = format["%1\n%2",_uiLaptimes, (sortedLaptimes select _i) select 0];
+		if(_i == 2)exitWith{};
+	};
 };
 
-_ctrlHighscoreText ctrlSetStructuredText parseText _uiLaptimes;
+_ctrlHighscoreText ctrlSetText format["%1",_uiLaptimes];//_uiLaptimes;

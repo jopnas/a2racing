@@ -146,7 +146,7 @@ class RscTitles {
 				idc = 9;
                 x = 0.7 * safezoneW + safezoneX - (0.3 * safezoneW / 2);
 				y = 0.9 * safezoneH + safezoneY;
-				text = "00:00:00:0000";
+				text = "-//-";
             };            
         };
     };

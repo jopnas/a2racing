@@ -36,8 +36,8 @@ fnc_crossedFinishline = {
 		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
 		//publicVariable "serverExec";
 	
-		lapTimeNumber = [lapTimeHuminized,":",""] call fnc_stringReplace;
-		lapTimes set [count lapTimes, [lapTimeHuminized,lapTimeNumber]];
+		lapTimeNumber = [lapTimeHuminized, ':'] call CBA_fnc_replace;;//[lapTimeHuminized,":",""] call fnc_stringReplace;
+		lapTimes set [count lapTimes, [lapTimeHuminized,parsenumber lapTimeNumber]];
 
 		if(count lapTimes > 1)then {
 			// BIS_fnc_sortNum
@@ -125,6 +125,14 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 			};
 
 			// Keep at two characters
+			raceTimeMiliStr = str raceTimeMili;
+			if(raceTimeMili < 10)then{
+				raceTimeMiliStr	= format["00%1",lapTimeMili];
+			};
+			if(raceTimeMili < 100)then{
+				raceTimeMiliStr	= format["0%1",lapTimeMili];
+			};
+
 			if(raceTimeHour < 10)then{
 				raceTimeHourStr = format["0%1",raceTimeHour];
 			}else{
@@ -164,6 +172,14 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 			};
 
 			// Keep at two characters
+			lapTimeMiliStr = str lapTimeMili;
+			if(lapTimeMili < 10)then{
+				lapTimeMiliStr	= format["00%1",lapTimeMili];
+			};
+			if(lapTimeMili < 100)then{
+				lapTimeMiliStr	= format["0%1",lapTimeMili];
+			};
+
 			if(lapTimeHour < 10)then{
 				lapTimeHourStr = format["0%1",lapTimeHour];
 			}else{
@@ -182,8 +198,8 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 				lapTimeSecStr = format["%1",lapTimeSec];
 			};
 
-			raceTimeHuminized = format["%1:%2:%3:%4",raceTimeHourStr,raceTimeMinStr,raceTimeSecStr,raceTimeMili];
-			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHourStr,lapTimeMinStr,lapTimeSecStr,lapTimeMili];
+			raceTimeHuminized = format["%1:%2:%3:%4",raceTimeHourStr,raceTimeMinStr,raceTimeSecStr,lapTimeMiliStr];
+			lapTimeHuminized = format["%1:%2:%3:%4",lapTimeHourStr,lapTimeMinStr,lapTimeSecStr,lapTimeMiliStr];
 		};
 
 		[] execVM "a2racing\scripts\client\updateGUI.sqf";
