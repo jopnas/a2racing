@@ -18,6 +18,23 @@ fnc_stringReplace = {
 	_newString
 };
 
+fnc_sort_laptimes = {
+	_laptimeHum	= _this select 0;
+	_laptimeNum	= _this select 1;
+	
+	_sorted = [];
+	if(count _sorted > 0)then{
+		{
+			if(_laptimeNum > _x select 1)then{
+				_sorted set [count _sorted,[_laptimeHum,_laptimeNum]]
+			};
+		} forEach lapTimes;
+	}else{
+		_sorted set [count _sorted,[_laptimeHum,_laptimeNum]]
+	};
+	_sorted
+};
+
 fnc_sortArray = {
 	/*
 	Author:
