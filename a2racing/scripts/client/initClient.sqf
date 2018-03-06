@@ -1,8 +1,3 @@
-if(serverCommandAvailable "#logout")then {
-	publicVariable "raceStarted";
-	publicVariable "racePaused";
-};
-
 sortedLaptimes = [];
 
 laps = 0;
@@ -10,13 +5,13 @@ raceTimeMili = 0;
 raceTimeSec = 0;
 raceTimeMin = 0;
 raceTimeHour = 0;
-raceTimeHuminized = "00:00:00:0000";
+raceTimeHuminized = "00:00:00:000";
 
 lapTimeMili = 0;
 lapTimeSec = 0;
 lapTimeMin = 0;
 lapTimeHour = 0;
-lapTimeHuminized = "00:00:00:0000";
+lapTimeHuminized = "00:00:00:000";
 
 chpoi1 = false;
 chpoi2 = false;
@@ -43,7 +38,7 @@ fnc_crossedFinishline = {
 
 		if(count lapTimes > 1)then {
 			// BIS_fnc_sortNum
-			sortedLaptimes = [lapTimes,{(_x select 1)}] call fnc_sortArray;
+			sortedLaptimes = [lapTimes,1] call CBA_fnc_sortNestedArray;
 		}else{
 			sortedLaptimes = lapTimes;
 		};
@@ -52,7 +47,7 @@ fnc_crossedFinishline = {
 		lapTimeSec = 0;
 		lapTimeMin = 0;
 		lapTimeHour = 0;
-		lapTimeHuminized = "00:00:00:0000";
+		lapTimeHuminized = "00:00:00:000";
 
 		laps = laps + 1;
 		chpoi1 = false;
@@ -87,17 +82,14 @@ player addAction ["Start Race", "a2racing\scripts\client\startRace.sqf",nil,6,fa
 player addAction ["Pause Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 
-/*
-// Player EventHandlers
+
+// example: clientExec = {hint "Test"};
 "clientExec" addPublicVariableEventHandler {
 	_fnc = _this select 1;
-	_compiledFnc = compile format["%1",_fnc];
-	call _compiledFnc;
-};*/
+	//_compiledFnc = compile format["%1",_fnc];
+	call _fnc;
+};
 
-/*"bestlist" addPublicVariableEventHandler {
-	_best = _this select 1;
-};*/
 
 [] spawn {
 	3 cutRsc ["player_gui","PLAIN",0];
@@ -206,8 +198,6 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 
 		[] execVM "a2racing\scripts\client\updateGUI.sqf";
 		
-
-		//hintSilent format["raceStarted: %1\n racePaused: %2\n chpoi1: %3\n chpoi2: %4\n chpoi3: %5\n",raceStarted,racePaused,chpoi1,chpoi2,chpoi3];
 		sleep 0.001;
 	};
 };

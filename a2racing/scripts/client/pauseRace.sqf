@@ -13,6 +13,5 @@ if(racePaused)then {
 	_caller  addAction ["Continou Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","((serverCommandAvailable '#logout') or isServer)"];
 };
 
-if(serverCommandAvailable "#logout")then {
-	publicVariable "racePaused";
-};
+publicVariable "racePaused";
+

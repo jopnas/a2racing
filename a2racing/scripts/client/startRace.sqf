@@ -31,11 +31,9 @@ raceStarted = true;
 racePaused = false;
 raceFinished = false;
 
-if(serverCommandAvailable "#logout")then {
-	publicVariable "raceStarted";
-	publicVariable "racePaused";
-	publicVariable "raceFinished";
-};
+4 cutFadeOut 1;
 
-4 cutFadeOut 2;
+publicVariable "raceStarted";
+publicVariable "racePaused";
+publicVariable "raceFinished";
 

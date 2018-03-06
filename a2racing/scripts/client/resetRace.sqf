@@ -2,12 +2,6 @@ raceStarted = false;
 racePaused = false;
 raceFinished = false;
 
-if(serverCommandAvailable "#logout" || (getPlayerUID player) == "_SP_PLAYER_")then {
-	publicVariable "raceStarted";
-	publicVariable "racePaused";
-	publicVariable "raceFinished";
-};
-
 laps = 0;
 raceTimeMili = 0;
 raceTimeSec = 0;
@@ -26,3 +20,8 @@ chpoi2 = false;
 chpoi3 = false;
 
 lapTimes = [];
+
+publicVariable "raceStarted";
+publicVariable "racePaused";
+publicVariable "raceFinished";
+

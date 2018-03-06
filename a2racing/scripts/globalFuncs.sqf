@@ -18,7 +18,7 @@ fnc_stringReplace = {
 	_newString
 };
 
-fnc_sort_laptimes = {
+/*fnc_sort_laptimes = {
 	_laptimeHum	= _this select 0;
 	_laptimeNum	= _this select 1;
 	
@@ -36,7 +36,7 @@ fnc_sort_laptimes = {
 };
 
 fnc_sortArray = {
-	/*
+	/ *
 	Author:
 	rübe
 
@@ -71,7 +71,7 @@ fnc_sortArray = {
 
 	Returns:
 	sorted list
-	*/
+	* /
 
 	private ["_list", "_selectSortValue", "_n", "_cols", "_j", "_k", "_h", "_t"];
 
@@ -116,4 +116,4 @@ fnc_sortArray = {
 	};
 
 	_list
-};
+};*/
