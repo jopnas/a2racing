@@ -4,14 +4,13 @@ racePaused = false;
 raceFinished = false;
 maxLaps = 5;
 
-highscore = [["NotSure","07:52:36:487",75236487],["NotSure","00:03:04:653",304653]];
-highscore = [highscore,2] call CBA_fnc_sortNestedArray;
-systemchat str highscore;
+scoreboard = [["Racedriver 1","07:52:36:487",75236487],["Racedriver 2","00:03:04:653",304653],["Racedriver 3","00:00:46:034",46034]];
+scoreboard = [scoreboard,2] call CBA_fnc_sortNestedArray;
 
 publicVariable "raceStarted";
 publicVariable "racePaused";
 publicVariable "raceFinished";
-publicVariable "highscore";
+publicVariable "scoreboard";
 
 [] execVM "a2racing\scripts\globalFuncs.sqf";
 
