@@ -14,27 +14,27 @@ _ctrlLapTimeText ctrlSetText format["Laptime: %1",lapTimeHuminized];
 // Players Bestlaps
 _uiLaptimes = "";
 if(count sortedLaptimes > 0)then{
-	for "_i" from 0 to (count sortedLaptimes) do {
-		_uiLaptimes = format["%1\n%2",_uiLaptimes, (sortedLaptimes select _i) select 0];
-		if(_i == 2)exitWith{};
-	};
+	{
+		_uiLaptimes = format["%1\n%2",_uiLaptimes, _x select 0];
+		if(_forEachIndex == 2)exitWith{};
+	} forEach sortedLaptimes;
 };
 _ctrlHighscoreText ctrlSetText format["%1",_uiLaptimes];
 
 if(showScoreboard)then{
 	// Race Bestlaps
-	_ctrlScoreboardText ctrlSetFade 1;
-	_ctrlScoreboardText ctrlCommit 1;
+	_ctrlScoreboardText ctrlSetTextColor [1,1,1,1];
+	_ctrlScoreboardText ctrlSetBackgroundColor [0,0,0,1];
 
 	_scoreboardTimes = "";
 	if(count scoreboard > 0)then{
-		for "_i" from 0 to (count scoreboard) do {
-			_scoreboardTimes = format["%1\n%2. %3 %4",_scoreboardTimes, _i + 1, (scoreboard select _i) select 1, (scoreboard select _i) select 0];
-			if(_i == 5)exitWith{};
-		};
+		{
+			_scoreboardTimes = format["%1\n%2. %3 %4",_scoreboardTimes, _forEachIndex + 1, _x select 1, _x select 0];
+			if(_forEachIndex == 5)exitWith{};
+		} forEach scoreboard;
 	};
 	_ctrlScoreboardText ctrlSetText format["%1",_scoreboardTimes];
 }else{
-	_ctrlScoreboardText ctrlSetFade 0;
-	_ctrlScoreboardText ctrlCommit 1;
+	_ctrlScoreboardText ctrlSetTextColor [1,1,1,0];
+	_ctrlScoreboardText ctrlSetBackgroundColor [0,0,0,0];
 };

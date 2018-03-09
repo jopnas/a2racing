@@ -18,7 +18,13 @@ chpoi2 = false;
 chpoi3 = false;
 
 lapTimes = [];
+
+
+// create and broadcast public scoreboard array
 showScoreboard = false;
+//scoreboard = [["Racedriver 1","07:52:36:487",75236487],["Racedriver 2","00:03:04:653",304653],["Racedriver 3","00:00:46:034",46034]];
+scoreboard = [];
+publicVariable "scoreboard";
 
 /*
 	Function for finishline trigger.
@@ -28,21 +34,19 @@ showScoreboard = false;
 */
 fnc_crossedFinishline = {
 	if(!racePaused && raceStarted && chpoi1 && chpoi2 && chpoi3)then{
-		// TODO: send lapTime to server
-		//serverExec = format["[%1,%2] call fnc_getBesttime",name player,lapTimeHuminized];
-		//publicVariable "serverExec";
-	
 		lapTimeNumber = parsenumber ([lapTimeHuminized, ':'] call CBA_fnc_replace);
 		lapTimes set [count lapTimes, [lapTimeHuminized,lapTimeNumber]];
 
-		//sortedLaptimes = [lapTimeHuminized,lapTimeNumber] call fnc_sort_laptimes;
-
 		if(count lapTimes > 1)then {
-			// BIS_fnc_sortNum
 			sortedLaptimes = [lapTimes,1] call CBA_fnc_sortNestedArray;
 		}else{
 			sortedLaptimes = lapTimes;
 		};
+
+		//scoreboard = scoreboard + [name player, lapTimeHuminized, lapTimeNumber];
+		scoreboard set [count scoreboard, [name player, lapTimeHuminized, lapTimeNumber]];
+		scoreboard = [scoreboard,1] call CBA_fnc_sortNestedArray;
+		publicVariable "scoreboard";
 
 		lapTimeMili = 0;
 		lapTimeSec = 0;

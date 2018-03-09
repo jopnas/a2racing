@@ -150,11 +150,14 @@ class RscTitles {
             };
             class scoreboard: counterText {
 				idc = 10;
-                x = 0.3 * safezoneW + safezoneX - (0.3 * safezoneW / 2);
-				y = 0.2 * safezoneH + safezoneY;
+                w = 0.3 * safezoneW;
+                h = 0.13 * safezoneH;
+                x = 0.5 - ((0.3 * safezoneW)/2);
+				y = 0.3 * safezoneH + safezoneY;
 				text = "-//-";
-                colorBackground[]={0,0,0,1};
-                colorText[]={1,1,1,1};
+                colorText[] = {1,1,1,0};
+                colorBackground[] = {0,0,0,0};
+                shadow = 0;
             };            
         };
     };
