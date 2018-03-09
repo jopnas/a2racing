@@ -18,6 +18,7 @@ chpoi2 = false;
 chpoi3 = false;
 
 lapTimes = [];
+showScoreboard = false;
 
 /*
 	Function for finishline trigger.
@@ -197,7 +198,7 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 		};
 
 		[] execVM "a2racing\scripts\client\updateGUI.sqf";
-		
+
 		sleep 0.001;
 	};
 };

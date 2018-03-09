@@ -147,20 +147,9 @@ class RscTitles {
                 x = 0.7 * safezoneW + safezoneX - (0.3 * safezoneW / 2);
 				y = 0.9 * safezoneH + safezoneY;
 				text = "-//-";
-            };            
-        };
-    };
-
-    class scoreboard_gui:Default {
-        idd = 6902;
-        movingEnable = 0;
-        duration = 100000;
-        name = "scoreboardGUI";
-        onLoad = "uiNamespace setVariable ['scoreboard_display', _this select 0];";
-
-        class controls {
+            };
             class scoreboard: counterText {
-				idc = 11;
+				idc = 10;
                 x = 0.3 * safezoneW + safezoneX - (0.3 * safezoneW / 2);
 				y = 0.2 * safezoneH + safezoneY;
 				text = "-//-";
