@@ -30,8 +30,8 @@ if(showScoreboard)then{
 	if(count scoreboard > 0)then{
 		{
 			_scoreboardTimes = format["%1\n%2. %3 %4",_scoreboardTimes, _forEachIndex + 1, _x select 1, _x select 0];
-			if(_forEachIndex == 5)exitWith{};
-		} forEach scoreboard;
+			if(_forEachIndex == 3)exitWith{};
+		} forEach sortedScoreboard;
 	};
 	_ctrlScoreboardText ctrlSetText format["%1",_scoreboardTimes];
 }else{

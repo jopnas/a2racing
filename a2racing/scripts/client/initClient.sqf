@@ -19,12 +19,13 @@ chpoi3 = false;
 
 lapTimes = [];
 
-
 // create and broadcast public scoreboard array
 showScoreboard = false;
 //scoreboard = [["Racedriver 1","07:52:36:487",75236487],["Racedriver 2","00:03:04:653",304653],["Racedriver 3","00:00:46:034",46034]];
 scoreboard = [];
 publicVariable "scoreboard";
+
+sortedScoreboard = [];
 
 /*
 	Function for finishline trigger.
@@ -45,8 +46,13 @@ fnc_crossedFinishline = {
 
 		//scoreboard = scoreboard + [name player, lapTimeHuminized, lapTimeNumber];
 		scoreboard set [count scoreboard, [name player, lapTimeHuminized, lapTimeNumber]];
-		scoreboard = [scoreboard,1] call CBA_fnc_sortNestedArray;
 		publicVariable "scoreboard";
+
+		if(count scoreboard > 1)then{
+			sortedScoreboard = [scoreboard,2] call CBA_fnc_sortNestedArray;
+		}else{
+			sortedScoreboard = scoreboard;
+		};
 
 		lapTimeMili = 0;
 		lapTimeSec = 0;
