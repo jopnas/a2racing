@@ -2,7 +2,10 @@
 raceStarted = false;
 racePaused = false;
 raceFinished = false;
-maxLaps = 5;
+maxLaps = 3;
+
+missionNamespace setVariable ["serverExec", ""];
+publicVariable "serverExec";
 
 publicVariable "raceStarted";
 publicVariable "racePaused";

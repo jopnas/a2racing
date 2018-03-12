@@ -64,13 +64,8 @@ fnc_crossedFinishline = {
 		chpoi2 = false;
 		chpoi3 = false;
 
-		serverExec = {[name player,lapCount] call fnc_srv_lapsCheck};
+		serverExec = "[name player,lapCount] call fnc_srv_lapsCheck";
 		publicVariable "serverExec";
-
-		if(lapCount >= maxLaps)then{
-			raceFinished = true;
-			systemChat "race finished"; 
-		};
 
 		//systemChat "crossed finishline"; 
 	};

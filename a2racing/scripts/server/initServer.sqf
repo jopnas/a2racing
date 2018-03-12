@@ -1,10 +1,9 @@
 // example: serverExec = {hint "Test"};
-serverExec = "";
-publicVariable "serverExec";
 "serverExec" addPublicVariableEventHandler {
 	_fnc = _this select 1;
-	//_compiledFnc = compile format["%1",_fnc];
+	_compiledFnc = compile format["%1",_fnc];
 	call _fnc;
+	systemChat "serverExec";
 };
 
 // rankedList = [["racedriver1",5],["Racedriver2",4]];
@@ -12,6 +11,7 @@ rankedList = [];
 fnc_srv_lapsCheck = {
 	_drivername = _this select 0;
 	_driverlaps = _this select 1;
+
 	rankedList set [count rankedList, [_drivername, _driverlaps]];
 
 	rankedList = [rankedList,1] call CBA_fnc_sortNestedArray;
@@ -22,4 +22,6 @@ fnc_srv_lapsCheck = {
 		raceFinished = true;
 		publicVariable "raceFinished";
 	};
+
+	systemChat str rankedList;
 };
