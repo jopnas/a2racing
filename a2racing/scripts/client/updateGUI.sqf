@@ -1,13 +1,13 @@
 disableSerialization;
 _namespaceUI = uiNamespace getVariable "player_display";
 
-_ctrlLapsCountText 	= _namespaceUI displayCtrl 6;
+_ctrlLapCountText 	= _namespaceUI displayCtrl 6;
 _ctrlRaceTimeText 	= _namespaceUI displayCtrl 7;
 _ctrlLapTimeText 	= _namespaceUI displayCtrl 8;
-_ctrlHighscoreText 	= _namespaceUI displayCtrl 9;
+_ctrlHighscoreText = _namespaceUI displayCtrl 9;
 _ctrlScoreboardText	= _namespaceUI displayCtrl 10;
 
-_ctrlLapsCountText ctrlSetText format["Laps: %1",laps];
+_ctrlLapCountText ctrlSetText format["Laps: %1",lapCount];
 _ctrlRaceTimeText ctrlSetText format["Racetime: %1",raceTimeHuminized];
 _ctrlLapTimeText ctrlSetText format["Laptime: %1",lapTimeHuminized];
 

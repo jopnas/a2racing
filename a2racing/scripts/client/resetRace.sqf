@@ -2,7 +2,7 @@ raceStarted = false;
 racePaused = false;
 raceFinished = false;
 
-laps = 0;
+lapCount = 0;
 raceTimeMili = 0;
 raceTimeSec = 0;
 raceTimeMin = 0;

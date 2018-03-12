@@ -126,7 +126,7 @@ class RscTitles {
         onLoad = "uiNamespace setVariable ['player_display', _this select 0];";
 
         class controls {
-            class laps: counterText {
+            class lapCount: counterText {
 				idc = 6;
 				y = 0.9 * safezoneH + safezoneY;
 				text = "0";
@@ -148,6 +148,7 @@ class RscTitles {
 				y = 0.9 * safezoneH + safezoneY;
 				text = "-//-";
             };
+
             class scoreboard: counterText {
 				idc = 10;
                 w = 0.3 * safezoneW;

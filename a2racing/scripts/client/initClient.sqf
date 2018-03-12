@@ -1,6 +1,6 @@
 sortedLaptimes = [];
 
-laps = 0;
+lapCount = 0;
 raceTimeMili = 0;
 raceTimeSec = 0;
 raceTimeMin = 0;
@@ -44,7 +44,6 @@ fnc_crossedFinishline = {
 			sortedLaptimes = lapTimes;
 		};
 
-		//scoreboard = scoreboard + [name player, lapTimeHuminized, lapTimeNumber];
 		scoreboard set [count scoreboard, [name player, lapTimeHuminized, lapTimeNumber]];
 		publicVariable "scoreboard";
 
@@ -60,12 +59,15 @@ fnc_crossedFinishline = {
 		lapTimeHour = 0;
 		lapTimeHuminized = "00:00:00:000";
 
-		laps = laps + 1;
+		lapCount = lapCount + 1;
 		chpoi1 = false;
 		chpoi2 = false;
 		chpoi3 = false;
 
-		if(laps >= maxLaps)then{
+		serverExec = {[name player,lapCount] call fnc_srv_lapsCheck};
+		publicVariable "serverExec";
+
+		if(lapCount >= maxLaps)then{
 			raceFinished = true;
 			systemChat "race finished"; 
 		};
