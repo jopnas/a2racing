@@ -4,6 +4,8 @@ racePaused = false;
 raceFinished = false;
 maxLaps = 3;
 
+//https://github.com/patroza/cba/blob/develop/addons/network/fnc_globalExecute.sqf
+
 missionNamespace setVariable ["serverExec", ""];
 publicVariable "serverExec";
 
