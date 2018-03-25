@@ -23,8 +23,6 @@ lapTimes = [];
 showScoreboard = false;
 //scoreboard = [["Racedriver 1","07:52:36:487",75236487],["Racedriver 2","00:03:04:653",304653],["Racedriver 3","00:00:46:034",46034]];
 scoreboard = [];
-publicVariable "scoreboard";
-
 sortedScoreboard = [];
 
 /*
@@ -44,8 +42,9 @@ fnc_crossedFinishline = {
 			sortedLaptimes = lapTimes;
 		};
 
+		// scoreboard = [[name player, lapTimeHuminized, lapTimeNumber],["PlayerA","00:00:58:372",3]];
 		scoreboard set [count scoreboard, [name player, lapTimeHuminized, lapTimeNumber]];
-		publicVariable "scoreboard";
+		[-2, {scoreboard = _this}, scoreboard] call CBA_fnc_globalExecute;
 
 		if(count scoreboard > 1)then{
 			sortedScoreboard = [scoreboard,2] call CBA_fnc_sortNestedArray;
@@ -64,8 +63,7 @@ fnc_crossedFinishline = {
 		chpoi2 = false;
 		chpoi3 = false;
 
-		serverExec = "[name player,lapCount] call fnc_srv_lapsCheck";
-		publicVariable "serverExec";
+		[0, {_this call fnc_srv_lapsCheck;},[name player,lapCount]] call CBA_fnc_globalExecute;
 
 		//systemChat "crossed finishline"; 
 	};
@@ -90,20 +88,21 @@ player addAction ["Start Race", "a2racing\scripts\client\startRace.sqf",nil,6,fa
 player addAction ["Pause Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 
-
-// example: clientExec = {hint "Test"};
-"clientExec" addPublicVariableEventHandler {
-	_fnc = _this select 1;
-	//_compiledFnc = compile format["%1",_fnc];
-	call _fnc;
+fnc_rankingcheck = {
+	{
+		if(_x select 0 == name player)then{
+			endMission "Winner";
+		}else{
+			failMission "Looser";		
+		};
+	} forEach sortedScoreboard;
 };
-
 
 [] spawn {
 	3 cutRsc ["player_gui","PLAIN",0];
 
 	while {alive player} do {
-		if(!racePaused && raceStarted)then{
+		if(!racePaused && raceStarted && !raceFinished)then{
 
 			// Time
 			// Racetime

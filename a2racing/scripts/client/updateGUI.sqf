@@ -27,7 +27,7 @@ if(showScoreboard)then{
 	_ctrlScoreboardText ctrlSetBackgroundColor [0,0,0,1];
 
 	_scoreboardTimes = "";
-	if(count scoreboard > 0)then{
+	if(count sortedScoreboard > 0)then{
 		{
 			_scoreboardTimes = format["%1\n%2. %3 %4",_scoreboardTimes, _forEachIndex + 1, _x select 1, _x select 0];
 			if(_forEachIndex == 3)exitWith{};

@@ -31,8 +31,6 @@ raceStarted = true;
 racePaused = false;
 raceFinished = false;
 
-publicVariable "raceStarted";
-publicVariable "racePaused";
-publicVariable "raceFinished";
+[-1, {raceStarted = _this select 0;racePaused = _this select 1;raceFinished = _this select 2;}, [raceStarted,racePaused,raceFinished]] call CBA_fnc_globalExecute;
 
 4 cutFadeOut 1;

@@ -14,4 +14,5 @@ if(racePaused)then {
 };
 
 publicVariable "racePaused";
+[-1, {racePaused = _this;},racePaused] call CBA_fnc_globalExecute;
 
