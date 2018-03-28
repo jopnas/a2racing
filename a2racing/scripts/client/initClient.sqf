@@ -90,10 +90,19 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 
 fnc_rankingcheck = {
 	{
-		if(_x select 0 == name player)then{
-			hintSilent "Winner";
-		}else{
-			hintSilent "Looser";		
+		switch (_forEachIndex) do {
+			case 0: {
+				hintSilent "1st winner";
+			};
+			case 1: {
+				hintSilent "2st winner";
+			};
+			case 2: {
+				hintSilent "3st winner";
+			};
+			default {
+				hintSilent "Looser";
+			};
 		};
 	} forEach sortedScoreboard;
 };
