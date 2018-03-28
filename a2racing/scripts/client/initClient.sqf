@@ -88,25 +88,6 @@ player addAction ["Start Race", "a2racing\scripts\client\startRace.sqf",nil,6,fa
 player addAction ["Pause Race", "a2racing\scripts\client\pauseRace.sqf",nil,5,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,false,false,"","(serverCommandAvailable '#logout') or isServer"];
 
-fnc_rankingcheck = {
-	{
-		switch (_forEachIndex) do {
-			case 0: {
-				hintSilent "1st winner";
-			};
-			case 1: {
-				hintSilent "2st winner";
-			};
-			case 2: {
-				hintSilent "3st winner";
-			};
-			default {
-				hintSilent "Looser";
-			};
-		};
-	} forEach sortedScoreboard;
-};
-
 [] spawn {
 	3 cutRsc ["player_gui","PLAIN",0];
 
