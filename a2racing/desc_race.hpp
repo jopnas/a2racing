@@ -163,22 +163,3 @@ class RscTitles {
         };
     };
 };
-
-class CfgDebriefing {
-    class Winner {
-        title = "YOU ARE THE WINNER!";
-        subtitle = "Your team wins";
-        description = "you won the race";
-        pictureBackground = "";
-        picture = "";
-        pictureColor[] = {0.0,0.3,0.6,1};
-    };
-    class Looser {
-        title = "you are a loose!";
-        subtitle = "Your team loses";
-        description = "you lost the race";
-        pictureBackground = "";
-        picture = "";
-        pictureColor[] = {0.0,0.3,0.6,1};
-    };
-};

@@ -91,9 +91,9 @@ player addAction ["! Reset Race", "a2racing\scripts\client\resetRace.sqf",nil,4,
 fnc_rankingcheck = {
 	{
 		if(_x select 0 == name player)then{
-			endMission "Winner";
+			hintSilent "Winner";
 		}else{
-			failMission "Looser";		
+			hintSilent "Looser";		
 		};
 	} forEach sortedScoreboard;
 };
