@@ -8,7 +8,7 @@ playersFinished = [];
 
 //https://github.com/patroza/cba/blob/develop/addons/network/fnc_globalExecute.sqf
 
-[] execVM "a2racing\scripts\globalFuncs.sqf";
+//[] execVM "a2racing\scripts\globalFuncs.sqf";
 
 if(!isDedicated)then{
 	[] execVM "a2racing\scripts\client\initClient.sqf";
