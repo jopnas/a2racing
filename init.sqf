@@ -2,7 +2,9 @@
 raceStarted = false;
 racePaused = false;
 raceFinished = false;
-maxLaps = 1;
+
+maxLaps = 2;
+playersFinished = [];
 
 //https://github.com/patroza/cba/blob/develop/addons/network/fnc_globalExecute.sqf
 

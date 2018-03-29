@@ -69,6 +69,21 @@ fnc_crossedFinishline = {
 	};
 };
 
+fnc_playerFinishedCheck = {
+	playersFinished = _this select 0;
+	if(lapCount == maxLaps)then{
+		{
+			if(name player == _x)then{
+				if(_forEachIndex == 0)then{
+					hintSilent "YOU ARE THE WINNER";
+				}else{
+					hintSilent format["YOU ARE THE #%1",_forEachIndex + 1];
+				};
+			};
+		} forEach playersFinished;
+	};
+};
+
 /*
 	Function for checkpoint trigger.
 
