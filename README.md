@@ -1,6 +1,4 @@
 # a2racing
-Under development!
-
 Singleplayer only at the moment. Multiplayer NOT tested.
 
 Required mods for scripts:
