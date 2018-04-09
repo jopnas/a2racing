@@ -1,5 +1,5 @@
 # a2racing
-Singleplayer only at the moment. I'am already working on multiplayer version.
+Singleplayer only at the moment. Multiplayer NOT tested.
 
 Required mods for scripts:
 - CBA: Operation Arrowhead (http://www.armaholic.com/page.php?id=6231)
