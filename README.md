@@ -15,13 +15,7 @@ Usage:
 
 2.  copy following code to your init.sqf.
 
-    if(!isDedicated)then{
-        [] execVM "a2racing\scripts\client\initClient.sqf";
-    };
-
-    if(isServer)then{
-        [] execVM "a2racing\scripts\server\initServer.sqf";
-    };
+    [] execVM "a2racing\scripts\init_a2racing.sqf";
 
 In mission you need 3 checkpoints trigger and 1 finsihline trigger, triggers by any and set to repeating.
 
