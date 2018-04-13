@@ -1,1 +1,1 @@
-[] execVM "a2racing\scripts\init_a2racing.sqf";
+[] execVM "a2racing\init_a2racing.sqf";
