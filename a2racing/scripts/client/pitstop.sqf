@@ -1,4 +1,4 @@
-// code by 'Hunter'
+// code by 'Hunter' modified by 'NotSure'
 _pitPosition = markerpos "pitStop";
 while {true} do {
 	sleep 3;
@@ -21,6 +21,7 @@ while {true} do {
 				_vehicle setFuel 1;
 				_vehicle setDamage 0;
 				hint "READY! GO..GO..GO";
+				sleep 10;
 			};
 		};
 	};	

@@ -19,6 +19,6 @@ Usage:
 
 In mission you need 3 checkpoints trigger and 1 finsihline trigger, triggers by any and set to repeating.
 
-Finishline onAct.:	[] call fnc_crossedFinishline;
-Checkpoint onAct.:	[1] call fnc_crossedCheckpoint; 
+Finishline onAct.:	[] call fnc_crossedFinishline;  
+Checkpoint onAct.:	[1] call fnc_crossedCheckpoint;  
 fnc_crossedCheckpoint need checkpoint number in parameters
